@@ -486,7 +486,6 @@ Five situations an Indian OPD diabetologist meets in a short slot, each tied to 
 | GlucoTwin source code | MIT — see [LICENSE](LICENSE). Copyright 2026 Nikhil Chawla. |
 | CGMacros (PhysioNet, [doi:10.13026/3z8q-x658](https://doi.org/10.13026/3z8q-x658)) | CC BY-NC-SA 4.0. Raw CSVs are not in this repo. Derived demo files carry the same licence. |
 | IFCT 2017 food composition | Cited (Longvah et al., ICMR-NIN). Unverified dishes stay disabled. |
-| Archify (diagram tool, [github.com/tt-a1i/archify](https://github.com/tt-a1i/archify)) | MIT. Used to render the diagram. Not part of the running app. |
 
 Synthea was not run. Java is present on the machine used to build this tree; the FHIR sample is the TypeScript writer, not a Synthea bundle.
 
@@ -497,14 +496,14 @@ Full notes: [DATA_LICENSES.md](DATA_LICENSES.md).
 - PDF (one page): [docs/architecture/GlucoTwin_Architecture.pdf](docs/architecture/GlucoTwin_Architecture.pdf)
 - PNG: [docs/architecture/GlucoTwin_Architecture.png](docs/architecture/GlucoTwin_Architecture.png)
 - Interactive HTML: [docs/architecture/GlucoTwin_Architecture.html](docs/architecture/GlucoTwin_Architecture.html) (download and open in a browser)
-- Source: [docs/architecture/glucotwin.architecture.json](docs/architecture/glucotwin.architecture.json), first rendered with [Archify](https://github.com/tt-a1i/archify)
+- Source: [docs/architecture/glucotwin.architecture.json](docs/architecture/glucotwin.architecture.json)
 
 How to read it, top to bottom:
 
 - Wearable and CGM events and a TypeScript FHIR bundle pass stream checks (gaps, compression, lag) and a per-stream consent gate.
 - The fitted twin forecasts with the physiology curve, ranks lifestyle plans, and raises Urgent or Watch alerts. Drift is flagged when the band stops fitting. The incremental engine is a health-panel path and does not replace that fit.
 - CGMacros, the ridge prior and the LightGBM residual stay in the offline column. They are not added to the live forecast.
-- The doctor dashboard is the only screen. Nodes for ABDM certification and a Web Worker are omitted because they are not built. On 15 October 2026 the labels and notes in the HTML were synced in place with the JSON source (seven plans, consent gate, wearable and habit-aware forecast, validated thresholds, pre-visit summary), and the PNG and PDF were re-exported from that HTML in a browser. A second in-place sync the same evening updated the consent, prior, Watch-upgrade, band and ward-snapshot notes after the audit fixes. The layout is Archify's original; Archify itself was not re-run.
+- The doctor dashboard is the only screen. Nodes for ABDM certification and a Web Worker are omitted because they are not built. On 15 October 2026 the labels and notes in the HTML were synced in place with the JSON source (seven plans, consent gate, wearable and habit-aware forecast, validated thresholds, pre-visit summary), and the PNG and PDF were re-exported from that HTML in a browser. A second in-place sync the same evening updated the consent, prior, Watch-upgrade, band and ward-snapshot notes after the audit fixes.
 
 Research prototype — not a medical device, not medical advice. All patient data is synthetic or open.
 
@@ -524,7 +523,7 @@ The deck covers the problem (with the citations above), what the twin does, the 
 How the repository stays readable without extra permissions:
 
 - Every file is an ordinary committed file: no Git LFS, no submodules, no private package registry. The whole push is about 21 MB, and the largest file is 3.9 MB, well under GitHub's 100 MB limit.
-- Every relative link in this README points at a committed file (checked 18 October 2026). External links go to public DOI, PhysioNet, GitHub and Archify pages.
+- Every relative link in this README points at a committed file (checked 18 October 2026). External links go to public DOI, PhysioNet and GitHub pages.
 - The demo video is unlisted on YouTube: anyone with the link can watch it without signing in. A private video would not satisfy the form.
 - No credentials are stored in the repository; server-side settings are read from environment variables.
 - Left out on purpose (see `.gitignore`): the raw CGMacros CSVs (licence terms; fetch them with `ml/download_cgmacros.sh`), `node_modules` and build output, local editor and agent files, environment and key files, and video render intermediates.
