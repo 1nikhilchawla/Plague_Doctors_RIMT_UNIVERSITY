@@ -519,7 +519,7 @@ The deck covers the problem (with the citations above), what the twin does, the 
 
 ## 12. Public access
 
-**Repository:** _public GitHub URL to be added after pushing._
+**Repository:** [https://github.com/1nikhilchawla/Plague_Doctors_RIMT_UNIVERSITY](https://github.com/1nikhilchawla/Plague_Doctors_RIMT_UNIVERSITY)
 
 How the repository stays readable without extra permissions:
 
