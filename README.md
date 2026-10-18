@@ -529,8 +529,6 @@ How the repository stays readable without extra permissions:
 - No credentials are stored in the repository; server-side settings are read from environment variables.
 - Left out on purpose (see `.gitignore`): the raw CGMacros CSVs (licence terms; fetch them with `ml/download_cgmacros.sh`), `node_modules` and build output, local editor and agent files, environment and key files, and video render intermediates.
 
-After pushing, open the repository URL and the video link in a private browser window, signed out, to confirm both load.
-
 ## Quick start
 
 ```bash
