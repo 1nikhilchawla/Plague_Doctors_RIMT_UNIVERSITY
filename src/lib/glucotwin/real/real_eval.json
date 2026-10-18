@@ -1,0 +1,920 @@
+{
+  "dataset": "CGMacros",
+  "version": "1.0.0",
+  "doi": "10.13026/3z8q-x658",
+  "licence": "CC BY-NC-SA 4.0",
+  "participants": 45,
+  "skippedSubjects": [],
+  "demoSubjects": [
+    45,
+    48,
+    49
+  ],
+  "groupCounts": {
+    "healthy": 15,
+    "prediabetes": 16,
+    "t2d": 14
+  },
+  "horizons": [
+    {
+      "horizonMin": 30,
+      "rmseTwin": 18.5,
+      "rmsePersistence": 19.6,
+      "rmsePopulation": 20.5,
+      "rmseLinear": 26.5,
+      "improvementPct": 5.6,
+      "mae": 12.4,
+      "mard": 8.6,
+      "coverage": 0.805,
+      "clarkeApb": 0.998,
+      "n": 11101,
+      "patientRmseMean": 17.9,
+      "patientRmseCi": [
+        16.6,
+        19.3
+      ]
+    },
+    {
+      "horizonMin": 60,
+      "rmseTwin": 26.2,
+      "rmsePersistence": 28.9,
+      "rmsePopulation": 30.3,
+      "rmseLinear": 48.8,
+      "improvementPct": 9.3,
+      "mae": 17.7,
+      "mard": 12.3,
+      "coverage": 0.794,
+      "clarkeApb": null,
+      "n": 11102,
+      "patientRmseMean": 24.9,
+      "patientRmseCi": [
+        22.6,
+        27.1
+      ]
+    },
+    {
+      "horizonMin": 120,
+      "rmseTwin": 31.8,
+      "rmsePersistence": 38.9,
+      "rmsePopulation": 39.8,
+      "rmseLinear": 91.6,
+      "improvementPct": 18.3,
+      "mae": 22.0,
+      "mard": 15.2,
+      "coverage": 0.789,
+      "clarkeApb": null,
+      "n": 11101,
+      "patientRmseMean": 29.3,
+      "patientRmseCi": [
+        26.0,
+        33.2
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "group": "t2d",
+      "patients": 14,
+      "rmse60": 32.0,
+      "rmse60Persistence": 35.5,
+      "improvementPct": 9.9
+    },
+    {
+      "group": "prediabetes",
+      "patients": 16,
+      "rmse60": 25.0,
+      "rmse60Persistence": 27.6,
+      "improvementPct": 9.4
+    },
+    {
+      "group": "healthy",
+      "patients": 15,
+      "rmse60": 21.0,
+      "rmse60Persistence": 22.9,
+      "improvementPct": 8.3
+    }
+  ],
+  "trendCorrection": {
+    "30": {
+      "slopeGain": 0.161,
+      "bias": 1.71
+    },
+    "60": {
+      "slopeGain": 0.0905,
+      "bias": 3.218
+    },
+    "120": {
+      "slopeGain": 0.0318,
+      "bias": 5.663
+    }
+  },
+  "personalTrust": {
+    "chosenOn": "validation days 5\u20136, per participant, 1-SE floor to the group prior anchored at the measured overnight fasting level (cohort.ts chooseTrust)",
+    "counts": {
+      "1.0": 12,
+      "0.75": 0,
+      "0.5": 0,
+      "0.25": 0,
+      "0.0": 33
+    }
+  },
+  "mealResidual": {
+    "chosen": "scaled",
+    "chosenOn": "validation days 5\u20136, pooled 60-min RMSE of the personal twin",
+    "validationRmse60": {
+      "plain": 28.0,
+      "scaled": 26.3
+    }
+  },
+  "mealClock": {
+    "chosen": false,
+    "chosenOn": "validation days 5\u20136, pooled 60-min RMSE of the personal twin",
+    "validationRmse60": {
+      "on": 30.8,
+      "off": 28.0
+    }
+  },
+  "alerts": {
+    "spikeEvents": 457,
+    "lowEvents": 17,
+    "spikeAlerts": 282,
+    "lowAlerts": 18,
+    "spikeRecall": 0.389,
+    "spikePrecision": 0.638,
+    "lowRecall": 0.412,
+    "lowPrecision": 0.389,
+    "falsePerPatientDay": 0.43,
+    "medianLeadMin": 35,
+    "leadIqrMin": [
+      20,
+      60
+    ],
+    "evalDays": 263,
+    "spikeHits": 178,
+    "spikeTrue": 180,
+    "lowHits": 7,
+    "lowTrue": 7,
+    "spikeLeadShares": {
+      "atLeast30": {
+        "count": 115,
+        "events": 457,
+        "share": 0.252
+      },
+      "atLeast60": {
+        "count": 49,
+        "events": 457,
+        "share": 0.107
+      },
+      "atLeast120": {
+        "count": 5,
+        "events": 457,
+        "share": 0.011
+      }
+    },
+    "discrimination": {
+      "spike": {
+        "target": "Within the next 120 min glucose goes above 180, or rises 50 mg/dL above now (steps at or under 180 now)",
+        "steps": 56943,
+        "baseRate": 0.1986,
+        "auroc": 0.685,
+        "aurocCi": [
+          0.638,
+          0.73
+        ],
+        "auprc": 0.373,
+        "auprcCi": [
+          0.315,
+          0.436
+        ],
+        "brier": 0.1621,
+        "brierClimatology": 0.1592,
+        "brierSkill": -0.018,
+        "ece": 0.115,
+        "ciMethod": "participant bootstrap, 1000 resamples"
+      },
+      "low": {
+        "target": "Within the next 60 min glucose falls under 70 (steps at or over 70 now)",
+        "steps": 66385,
+        "baseRate": 0.0031,
+        "auroc": 0.668,
+        "aurocCi": [
+          0.507,
+          0.819
+        ],
+        "auprc": 0.061,
+        "auprcCi": [
+          0.014,
+          0.148
+        ],
+        "brier": 0.0035,
+        "brierClimatology": 0.0031,
+        "brierSkill": -0.117,
+        "ece": 0.003,
+        "ciMethod": "participant bootstrap, 1000 resamples"
+      }
+    },
+    "bootstrapRmseReduction": {
+      "resamples": 1000,
+      "horizonMin60": {
+        "reduction": {
+          "low": 0.0698,
+          "high": 0.1202,
+          "median": 0.0951
+        }
+      },
+      "horizonMin120": {
+        "reduction": {
+          "low": 0.1486,
+          "high": 0.2138,
+          "median": 0.1829
+        }
+      }
+    }
+  },
+  "lowRule": {
+    "chosen": {
+      "aheadMin": 15,
+      "fallRate": -1.0,
+      "dampMin": 10.0,
+      "blend": 0.5,
+      "ceiling": 85.0,
+      "ceilingFasting": 92.0,
+      "postMealCeiling": 92.0
+    },
+    "chosenOn": "leave-one-participant-out on test days (day 7 on): each participant is scored with the candidate that had the best pooled low-alert F1 on the other participants; the dashboard uses the most frequent choice",
+    "selection": "leave-one-participant-out",
+    "choiceCounts": {
+      "0": 45
+    },
+    "candidates": [
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 45
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 18,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.4,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 22,
+        "lowFalse": 15,
+        "f1AllParticipants": 0.359,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 22,
+        "lowFalse": 15,
+        "f1AllParticipants": 0.359,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 24,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.341,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 24,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.341,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 24,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.341,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 7,
+        "lowAlerts": 24,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.341,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 16,
+        "lowFalse": 11,
+        "f1AllParticipants": 0.303,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 21,
+        "lowFalse": 15,
+        "f1AllParticipants": 0.316,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 21,
+        "lowFalse": 15,
+        "f1AllParticipants": 0.316,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 23,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.3,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 23,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.3,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 23,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.3,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -1.5,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 6,
+        "lowAlerts": 23,
+        "lowFalse": 17,
+        "f1AllParticipants": 0.3,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 10.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 15,
+        "lowFalse": 10,
+        "f1AllParticipants": 0.312,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 19,
+        "lowFalse": 14,
+        "f1AllParticipants": 0.278,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 85.0,
+          "ceilingFasting": 92.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 19,
+        "lowFalse": 14,
+        "f1AllParticipants": 0.278,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 21,
+        "lowFalse": 16,
+        "f1AllParticipants": 0.263,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 88.0,
+          "ceilingFasting": 95.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 21,
+        "lowFalse": 16,
+        "f1AllParticipants": 0.263,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": 92.0
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 21,
+        "lowFalse": 16,
+        "f1AllParticipants": 0.263,
+        "chosenFor": 0
+      },
+      {
+        "rule": {
+          "aheadMin": 15,
+          "fallRate": -2.0,
+          "dampMin": 20.0,
+          "blend": 0.5,
+          "ceiling": 92.0,
+          "ceilingFasting": 100.0,
+          "postMealCeiling": null
+        },
+        "lowEvents": 17,
+        "lowHits": 5,
+        "lowAlerts": 21,
+        "lowFalse": 16,
+        "f1AllParticipants": 0.263,
+        "chosenFor": 0
+      }
+    ]
+  },
+  "hybrid": {
+    "30": {
+      "kept": true,
+      "rmseTwin": 18.2,
+      "rmseHybrid": 17.4,
+      "heldoutTwin": 24.4,
+      "heldoutHybrid": 22.3,
+      "cvParticipants": 42,
+      "heldoutParticipants": 3
+    },
+    "60": {
+      "kept": true,
+      "rmseTwin": 25.5,
+      "rmseHybrid": 24.6,
+      "heldoutTwin": 37.2,
+      "heldoutHybrid": 34.2,
+      "cvParticipants": 42,
+      "heldoutParticipants": 3
+    },
+    "120": {
+      "kept": true,
+      "rmseTwin": 31.0,
+      "rmseHybrid": 29.7,
+      "heldoutTwin": 46.5,
+      "heldoutHybrid": 40.8,
+      "cvParticipants": 42,
+      "heldoutParticipants": 3
+    }
+  },
+  "ablation": [
+    {
+      "id": "none",
+      "label": "No EHR",
+      "rmse60": 30.4,
+      "n": 11192
+    },
+    {
+      "id": "group",
+      "label": "Group only",
+      "rmse60": 30.3,
+      "n": 11192
+    },
+    {
+      "id": "ehr",
+      "label": "EHR prior",
+      "rmse60": 26.8,
+      "n": 11192
+    },
+    {
+      "id": "ehrPersonal",
+      "label": "EHR prior + personal calibration",
+      "rmse60": 26.4,
+      "n": 11192
+    }
+  ],
+  "note": "Days 1\u20134 set the knobs, days 5\u20136 set the conformal band (finite-sample split conformal, refit after the leave-one-participant-out trend correction), day 7 through the end of each file is the test. Dexcom is primary. Libre fills gaps after a per-person median offset. Watch walks (METs \u2265 3 for \u2265 10 min) are fed to the forecaster. No sleep stream exists in CGMacros. The three demo participants are held out of the LightGBM fit. The EHR prior is a leave-one-out ridge on HbA1c, fasting glucose, fasting insulin, HOMA-IR, BMI, age, and sex."
+}

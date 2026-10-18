@@ -1,0 +1,49 @@
+# Dependencies and build output
+node_modules/
+.output/
+.vercel/
+.tanstack/
+dist/
+.node_modules.lock
+
+# Local agent and editor files (not part of the submission)
+AGENTS.md
+.claude/
+
+# Grok App Builder workspace files; the app reads only app-env.json
+.grok/*
+!.grok/app-env.json
+
+# Large video intermediates (frames, voice takes, audio, render segments)
+brag-output*/work/
+# The 25-minute explainer is about 225 MB, over GitHub's 100 MB file limit: it goes to
+# YouTube (README section 8). Its plan, script, captions and poster stay in the repo.
+brag-output-*/brag.mp4
+
+# Secrets and local environment files (none exist today; keep it that way)
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+.npmrc
+credentials*.json
+service-account*.json
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local PhysioNet CGMacros cache (downloaded; never committed)
+.cgmacros/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

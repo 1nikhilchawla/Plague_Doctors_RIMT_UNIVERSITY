@@ -1,0 +1,562 @@
+{
+  "source": "getCohort() — simulated stress test, mismatched generator (seed 42)",
+  "patients": 11,
+  "evalDays": 12,
+  "patientDays": 132,
+  "scorer": "scoreAlertEvents: a hit is an alert in the 120 min before a spike (60 min before a low); a false alert has no event in the following window. All methods share hygieneFires (hysteresis, 60-min suppression, 8 alerts/day cap, gaps block).",
+  "reproducedStoredTwinAlerts": true,
+  "methods": [
+    {
+      "id": "twin",
+      "label": "GlucoTwin (live, risk ≥ 0.8)",
+      "uses": "CGM + logged meals and walks + sleep + fitted knobs from the record",
+      "spike": {
+        "events": 254,
+        "alerts": 299,
+        "hits": 155,
+        "recall": 0.61,
+        "recallWilson": [
+          0.549,
+          0.668
+        ],
+        "precision": 0.669,
+        "precisionWilson": [
+          0.614,
+          0.72
+        ],
+        "f1": 0.638,
+        "falsePerPatientDay": 0.75,
+        "medianLeadMin": 105,
+        "leadIqrMin": [
+          50,
+          115
+        ],
+        "warnedAtLeast30": {
+          "count": 131,
+          "share": 0.516
+        },
+        "warnedAtLeast60": {
+          "count": 109,
+          "share": 0.429
+        },
+        "warnedAtLeast90": {
+          "count": 95,
+          "share": 0.374
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 6,
+        "hits": 6,
+        "recall": 0.375,
+        "precision": 1,
+        "falsePerPatientDay": 0
+      }
+    },
+    {
+      "id": "rise",
+      "label": "Rise-rate alarm",
+      "uses": "CGM only: rising ≥ 2 mg/dL/min over 15 min (low: falling ≥ 2 mg/dL/min under 110)",
+      "spike": {
+        "events": 254,
+        "alerts": 80,
+        "hits": 63,
+        "recall": 0.248,
+        "recallWilson": [
+          0.199,
+          0.305
+        ],
+        "precision": 0.788,
+        "precisionWilson": [
+          0.686,
+          0.863
+        ],
+        "f1": 0.377,
+        "falsePerPatientDay": 0.13,
+        "medianLeadMin": 5,
+        "leadIqrMin": [
+          5,
+          10
+        ],
+        "warnedAtLeast30": {
+          "count": 0,
+          "share": 0
+        },
+        "warnedAtLeast60": {
+          "count": 0,
+          "share": 0
+        },
+        "warnedAtLeast90": {
+          "count": 0,
+          "share": 0
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 3,
+        "hits": 2,
+        "recall": 0.125,
+        "precision": 0.667,
+        "falsePerPatientDay": 0.01
+      }
+    },
+    {
+      "id": "trend60",
+      "label": "Trend projection, 60 min",
+      "uses": "CGM only: 30-min straight-line trend projected 60 min ahead crosses 180 or rises 50",
+      "spike": {
+        "events": 254,
+        "alerts": 551,
+        "hits": 227,
+        "recall": 0.894,
+        "recallWilson": [
+          0.85,
+          0.926
+        ],
+        "precision": 0.495,
+        "precisionWilson": [
+          0.454,
+          0.537
+        ],
+        "f1": 0.637,
+        "falsePerPatientDay": 2.11,
+        "medianLeadMin": 25,
+        "leadIqrMin": [
+          10,
+          65
+        ],
+        "warnedAtLeast30": {
+          "count": 111,
+          "share": 0.437
+        },
+        "warnedAtLeast60": {
+          "count": 67,
+          "share": 0.264
+        },
+        "warnedAtLeast90": {
+          "count": 31,
+          "share": 0.122
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 27,
+        "hits": 7,
+        "recall": 0.438,
+        "precision": 0.259,
+        "falsePerPatientDay": 0.15
+      }
+    },
+    {
+      "id": "trend120",
+      "label": "Trend projection, 120 min",
+      "uses": "CGM only: same trend projected 120 min ahead",
+      "spike": {
+        "events": 254,
+        "alerts": 777,
+        "hits": 207,
+        "recall": 0.815,
+        "recallWilson": [
+          0.763,
+          0.858
+        ],
+        "precision": 0.345,
+        "precisionWilson": [
+          0.312,
+          0.379
+        ],
+        "f1": 0.485,
+        "falsePerPatientDay": 3.86,
+        "medianLeadMin": 45,
+        "leadIqrMin": [
+          15,
+          80
+        ],
+        "warnedAtLeast30": {
+          "count": 130,
+          "share": 0.512
+        },
+        "warnedAtLeast60": {
+          "count": 91,
+          "share": 0.358
+        },
+        "warnedAtLeast90": {
+          "count": 38,
+          "share": 0.15
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 27,
+        "hits": 7,
+        "recall": 0.438,
+        "precision": 0.259,
+        "falsePerPatientDay": 0.15
+      }
+    },
+    {
+      "id": "carb40",
+      "label": "Big-meal rule, ≥ 40 g carbs",
+      "uses": "Meal log only: warn at every logged meal with at least 40 g carbohydrate",
+      "spike": {
+        "events": 254,
+        "alerts": 246,
+        "hits": 144,
+        "recall": 0.567,
+        "recallWilson": [
+          0.505,
+          0.626
+        ],
+        "precision": 0.585,
+        "precisionWilson": [
+          0.523,
+          0.645
+        ],
+        "f1": 0.576,
+        "falsePerPatientDay": 0.77,
+        "medianLeadMin": 30,
+        "leadIqrMin": [
+          20,
+          40
+        ],
+        "warnedAtLeast30": {
+          "count": 84,
+          "share": 0.331
+        },
+        "warnedAtLeast60": {
+          "count": 5,
+          "share": 0.02
+        },
+        "warnedAtLeast90": {
+          "count": 0,
+          "share": 0
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 0,
+        "hits": 0,
+        "recall": 0,
+        "precision": null,
+        "falsePerPatientDay": 0
+      }
+    },
+    {
+      "id": "carb60",
+      "label": "Big-meal rule, ≥ 60 g carbs",
+      "uses": "Meal log only: warn at every logged meal with at least 60 g carbohydrate",
+      "spike": {
+        "events": 254,
+        "alerts": 102,
+        "hits": 75,
+        "recall": 0.295,
+        "recallWilson": [
+          0.243,
+          0.354
+        ],
+        "precision": 0.735,
+        "precisionWilson": [
+          0.642,
+          0.811
+        ],
+        "f1": 0.421,
+        "falsePerPatientDay": 0.2,
+        "medianLeadMin": 25,
+        "leadIqrMin": [
+          15,
+          30
+        ],
+        "warnedAtLeast30": {
+          "count": 34,
+          "share": 0.134
+        },
+        "warnedAtLeast60": {
+          "count": 0,
+          "share": 0
+        },
+        "warnedAtLeast90": {
+          "count": 0,
+          "share": 0
+        }
+      },
+      "low": {
+        "events": 16,
+        "alerts": 0,
+        "hits": 0,
+        "recall": 0,
+        "precision": null,
+        "falsePerPatientDay": 0
+      }
+    }
+  ],
+  "twinLeadHistogram": [
+    {
+      "label": "5–15 min",
+      "count": 20
+    },
+    {
+      "label": "20–30 min",
+      "count": 7
+    },
+    {
+      "label": "35–55 min",
+      "count": 19
+    },
+    {
+      "label": "60–90 min",
+      "count": 19
+    },
+    {
+      "label": "95–120 min",
+      "count": 90
+    }
+  ],
+  "twinThresholdSweep": [
+    {
+      "threshold": 0.3,
+      "recall": 0.575,
+      "precision": 0.302,
+      "f1": 0.396,
+      "falsePerPatientDay": 2.89,
+      "medianLeadMin": 50,
+      "warnedAtLeast60Share": 0.268
+    },
+    {
+      "threshold": 0.4,
+      "recall": 0.634,
+      "precision": 0.371,
+      "f1": 0.468,
+      "falsePerPatientDay": 2.35,
+      "medianLeadMin": 50,
+      "warnedAtLeast60Share": 0.299
+    },
+    {
+      "threshold": 0.5,
+      "recall": 0.622,
+      "precision": 0.481,
+      "f1": 0.542,
+      "falsePerPatientDay": 1.52,
+      "medianLeadMin": 65,
+      "warnedAtLeast60Share": 0.335
+    },
+    {
+      "threshold": 0.6,
+      "recall": 0.646,
+      "precision": 0.539,
+      "f1": 0.587,
+      "falsePerPatientDay": 1.27,
+      "medianLeadMin": 78,
+      "warnedAtLeast60Share": 0.378
+    },
+    {
+      "threshold": 0.7,
+      "recall": 0.61,
+      "precision": 0.568,
+      "f1": 0.588,
+      "falsePerPatientDay": 1.08,
+      "medianLeadMin": 80,
+      "warnedAtLeast60Share": 0.37
+    },
+    {
+      "threshold": 0.8,
+      "recall": 0.61,
+      "precision": 0.669,
+      "f1": 0.638,
+      "falsePerPatientDay": 0.75,
+      "medianLeadMin": 105,
+      "warnedAtLeast60Share": 0.429
+    },
+    {
+      "threshold": 0.9,
+      "recall": 0.634,
+      "precision": 0.75,
+      "f1": 0.687,
+      "falsePerPatientDay": 0.51,
+      "medianLeadMin": 100,
+      "warnedAtLeast60Share": 0.461
+    }
+  ],
+  "calibration": {
+    "spike": {
+      "target": "Within the next 120 min glucose goes above 180, or rises 50 mg/dL above now (steps at or under 180 now)",
+      "steps": 33128,
+      "baseRate": 0.193,
+      "brier": 0.0615,
+      "brierClimatology": 0.1555,
+      "brierSkill": 0.605,
+      "expectedCalibrationError": 0.028,
+      "auroc": 0.947,
+      "aurocCi": [
+        0.916,
+        0.97
+      ],
+      "auprc": 0.853,
+      "auprcCi": [
+        0.751,
+        0.911
+      ],
+      "ciMethod": "patient bootstrap, 1000 resamples",
+      "whenShownAtLeast95": {
+        "steps": 2544,
+        "observedRate": 0.956
+      },
+      "reliability": [
+        {
+          "bin": "0.00–0.10",
+          "n": 23095,
+          "meanPredicted": 0.008,
+          "observedRate": 0.028
+        },
+        {
+          "bin": "0.10–0.20",
+          "n": 1236,
+          "meanPredicted": 0.146,
+          "observedRate": 0.172
+        },
+        {
+          "bin": "0.20–0.30",
+          "n": 1858,
+          "meanPredicted": 0.256,
+          "observedRate": 0.193
+        },
+        {
+          "bin": "0.30–0.40",
+          "n": 929,
+          "meanPredicted": 0.344,
+          "observedRate": 0.323
+        },
+        {
+          "bin": "0.40–0.50",
+          "n": 780,
+          "meanPredicted": 0.451,
+          "observedRate": 0.396
+        },
+        {
+          "bin": "0.50–0.60",
+          "n": 644,
+          "meanPredicted": 0.546,
+          "observedRate": 0.72
+        },
+        {
+          "bin": "0.60–0.70",
+          "n": 584,
+          "meanPredicted": 0.65,
+          "observedRate": 0.702
+        },
+        {
+          "bin": "0.70–0.80",
+          "n": 460,
+          "meanPredicted": 0.748,
+          "observedRate": 0.772
+        },
+        {
+          "bin": "0.80–0.90",
+          "n": 556,
+          "meanPredicted": 0.854,
+          "observedRate": 0.867
+        },
+        {
+          "bin": "0.90–0.95",
+          "n": 442,
+          "meanPredicted": 0.925,
+          "observedRate": 0.934
+        },
+        {
+          "bin": "0.95–1.00",
+          "n": 2544,
+          "meanPredicted": 0.986,
+          "observedRate": 0.956
+        }
+      ]
+    },
+    "low": {
+      "target": "Within the next 60 min glucose falls under 70 (steps at or over 70 now)",
+      "steps": 37105,
+      "baseRate": 0.006,
+      "brier": 0.0049,
+      "brierClimatology": 0.0064,
+      "brierSkill": 0.237,
+      "expectedCalibrationError": 0.004,
+      "auroc": 0.853,
+      "aurocCi": [
+        0.796,
+        0.905
+      ],
+      "auprc": 0.395,
+      "auprcCi": [
+        0.303,
+        0.532
+      ],
+      "ciMethod": "patient bootstrap, 1000 resamples",
+      "whenShownAtLeast95": null,
+      "reliability": [
+        {
+          "bin": "0.00–0.10",
+          "n": 36862,
+          "meanPredicted": 0,
+          "observedRate": 0.003
+        },
+        {
+          "bin": "0.10–0.20",
+          "n": 89,
+          "meanPredicted": 0.15,
+          "observedRate": 0.225
+        },
+        {
+          "bin": "0.20–0.30",
+          "n": 61,
+          "meanPredicted": 0.247,
+          "observedRate": 0.361
+        },
+        {
+          "bin": "0.30–0.40",
+          "n": 33,
+          "meanPredicted": 0.344,
+          "observedRate": 0.576
+        },
+        {
+          "bin": "0.40–0.50",
+          "n": 40,
+          "meanPredicted": 0.459,
+          "observedRate": 0.825
+        },
+        {
+          "bin": "0.50–0.60",
+          "n": 9,
+          "meanPredicted": 0.545,
+          "observedRate": 0.667
+        },
+        {
+          "bin": "0.60–0.70",
+          "n": 3,
+          "meanPredicted": 0.636,
+          "observedRate": 1
+        },
+        {
+          "bin": "0.70–0.80",
+          "n": 4,
+          "meanPredicted": 0.752,
+          "observedRate": 1
+        },
+        {
+          "bin": "0.80–0.90",
+          "n": 3,
+          "meanPredicted": 0.844,
+          "observedRate": 1
+        },
+        {
+          "bin": "0.90–0.95",
+          "n": 1,
+          "meanPredicted": 0.937,
+          "observedRate": 1
+        },
+        {
+          "bin": "0.95–1.00",
+          "n": 0,
+          "meanPredicted": null,
+          "observedRate": null
+        }
+      ]
+    }
+  }
+}

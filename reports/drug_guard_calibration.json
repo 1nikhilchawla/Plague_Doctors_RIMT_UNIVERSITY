@@ -1,0 +1,601 @@
+{
+  "seedOffset": 1000,
+  "patientId": "GT-31",
+  "days": [
+    16,
+    21
+  ],
+  "lowEvents": 11,
+  "rule": "highest low recall with precision at least 0.8, else best F1; ties to higher precision, later start, lower ceiling, steeper fall",
+  "chosen": {
+    "minGap": 240,
+    "maxGlucose": 105,
+    "fallRate": -1,
+    "withinMin": 60
+  },
+  "candidates": [
+    {
+      "guard": null,
+      "lowAlerts": 0,
+      "lowHits": 0,
+      "recall": 0,
+      "precision": null
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 105,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 105,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 105,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 110,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 110,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 110,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 115,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 115,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 115,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 120,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 120,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 150,
+        "maxGlucose": 120,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 105,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 105,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 105,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 110,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 110,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 110,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 115,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 115,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 115,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 120,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 120,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 180,
+        "maxGlucose": 120,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 6,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.167
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 105,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 105,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 105,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 110,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 110,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 110,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 115,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 115,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 115,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 2,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 120,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 120,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 210,
+        "maxGlucose": 120,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 4,
+      "lowHits": 2,
+      "recall": 0.182,
+      "precision": 0.5
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 105,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 105,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 105,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 110,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 110,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 110,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 115,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 115,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 115,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 120,
+        "fallRate": -0.6,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 120,
+        "fallRate": -0.8,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    },
+    {
+      "guard": {
+        "minGap": 240,
+        "maxGlucose": 120,
+        "fallRate": -1,
+        "withinMin": 60
+      },
+      "lowAlerts": 1,
+      "lowHits": 1,
+      "recall": 0.091,
+      "precision": 1
+    }
+  ]
+}

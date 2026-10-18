@@ -1,0 +1,23 @@
+{
+  "measuredAt": "2026-10-17",
+  "node": "v22.18.0",
+  "cpu": "11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz",
+  "threads": 1,
+  "patients": 3000,
+  "readingsPerPatient": 288,
+  "cycles": 864000,
+  "microsecondsPerReading": 16.3,
+  "readingsPerSecondOneThread": 61437,
+  "patientsPerThreadAt5MinCadence": 18430965,
+  "meanStateBytes": 1710,
+  "forecastAtMedianMicroseconds": 14,
+  "forecastAtP95Microseconds": 29,
+  "rankPlansMedianMs": 10.9,
+  "rankPlansMaxMs": 30.8,
+  "wardSnapshotKb": 1030,
+  "wardSnapshotHydrateMs": 229,
+  "realWardLoadMs": 274,
+  "simWardFitMs": 2415,
+  "cohortEvaluationMs": 9597,
+  "note": "Compute only, one thread, Node; excludes network and database time. Engine loop = update + 2-hour forecast + spike risk per reading. The app loads the ward snapshot (hydrate) and, on the toggle, the CGMacros file; the fit and the cohort evaluation run only in scripts and tests. Browser timings are in docs/CHANGELOG_EVAL.md."
+}

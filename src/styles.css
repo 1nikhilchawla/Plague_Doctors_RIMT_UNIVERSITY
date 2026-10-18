@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --color-paper: #f4f0e6;
+  --color-surface: #fffdf8;
+  --color-ink: #1a2330;
+  --color-muted: #5c6772;
+  --color-line: #e4dccb;
+  --color-teal: #0e6e6b;
+  --color-teal-soft: #d7efe9;
+  --color-amber: #9a5b16;
+  --color-amber-soft: #f6e6cf;
+  --color-indigo: #3a458f;
+  --color-indigo-soft: #e4e6f4;
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Pre-visit clinical summary: never on screen, the only page content when printed from its button. */
+.clinical-summary {
+  display: none;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  html.print-summary .app-screen {
+    display: none !important;
+  }
+
+  html.print-summary .clinical-summary {
+    display: block;
+    color: #111;
+    font-size: 10.5pt;
+    line-height: 1.35;
+  }
+
+  .clinical-summary .cs-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16pt;
+    border-bottom: 2pt solid var(--color-teal);
+    padding-bottom: 8pt;
+    margin-bottom: 10pt;
+  }
+
+  .clinical-summary .cs-kicker {
+    margin: 0;
+    color: var(--color-teal);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .clinical-summary h1 {
+    margin: 2pt 0;
+    font-family: var(--font-display);
+    font-size: 20pt;
+  }
+
+  .clinical-summary .cs-meta {
+    text-align: right;
+    font-size: 9pt;
+  }
+
+  .clinical-summary .cs-meta p,
+  .clinical-summary .cs-head p {
+    margin: 0;
+  }
+
+  .clinical-summary section {
+    break-inside: avoid;
+    margin-bottom: 10pt;
+  }
+
+  .clinical-summary h2 {
+    margin: 0 0 4pt;
+    font-family: var(--font-display);
+    font-size: 13pt;
+  }
+
+  .clinical-summary table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .clinical-summary th,
+  .clinical-summary td {
+    border: 0.75pt solid #c9c2b2;
+    padding: 3pt 5pt;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .clinical-summary th {
+    background: #f1ede3;
+    font-weight: 600;
+  }
+
+  .clinical-summary .cs-note {
+    margin: 3pt 0 0;
+    color: #444;
+    font-size: 9pt;
+  }
+
+  .clinical-summary .cs-foot {
+    border-top: 0.75pt solid #c9c2b2;
+    padding-top: 6pt;
+    color: #444;
+    font-size: 8.5pt;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "GlucoTwin — Type 2 diabetes digital twin",
+    "subtitle": "Research prototype — not a medical device, not medical advice. All patient data is synthetic or open. Live forecast is physiology. LightGBM stays offline.",
+    "output": "docs/architecture/GlucoTwin_Architecture.html",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "wearables",
+      "type": "external",
+      "label": "Wearables and CGM",
+      "sublabel": "CGM, sleep + HRV, steps and walks",
+      "pos": [
+        48,
+        72
+      ],
+      "size": [
+        250,
+        64
+      ]
+    },
+    {
+      "id": "record",
+      "type": "database",
+      "label": "FHIR R4 Bundle (glucotwin-ts-fhir)",
+      "sublabel": "Labs, meds, simulated TCF7L2",
+      "pos": [
+        380,
+        72
+      ],
+      "size": [
+        250,
+        64
+      ]
+    },
+    {
+      "id": "cgmacros",
+      "type": "external",
+      "label": "CGMacros",
+      "sublabel": "PhysioNet, CC BY-NC-SA 4.0, US cohort",
+      "pos": [
+        1120,
+        72
+      ],
+      "size": [
+        240,
+        64
+      ]
+    },
+    {
+      "id": "python",
+      "type": "cloud",
+      "label": "Offline Python",
+      "sublabel": "Ridge prior, LightGBM, trend fit",
+      "pos": [
+        1460,
+        72
+      ],
+      "size": [
+        260,
+        64
+      ],
+      "tag": "not on the live curve"
+    },
+    {
+      "id": "report",
+      "type": "database",
+      "label": "real_eval.json",
+      "sublabel": "Stored horizons, alerts, hybrid",
+      "pos": [
+        1460,
+        188
+      ],
+      "size": [
+        260,
+        58
+      ]
+    },
+    {
+      "id": "checks",
+      "type": "backend",
+      "label": "Stream checks",
+      "sublabel": "Gap, compression, lag, units",
+      "pos": [
+        48,
+        300
+      ],
+      "size": [
+        250,
+        58
+      ]
+    },
+    {
+      "id": "cluster",
+      "type": "backend",
+      "label": "Approximate cluster",
+      "sublabel": "SIDD/IROD/CIRDD/MARD, blended prior",
+      "pos": [
+        400,
+        300
+      ],
+      "size": [
+        260,
+        58
+      ],
+      "tag": "cold start only"
+    },
+    {
+      "id": "state",
+      "type": "backend",
+      "label": "Fitted twin",
+      "sublabel": "Validated shrinkage, finite-sample band",
+      "pos": [
+        780,
+        300
+      ],
+      "size": [
+        250,
+        58
+      ]
+    },
+    {
+      "id": "drift",
+      "type": "backend",
+      "label": "Drift monitor",
+      "sublabel": "Flags out of sync, fit stays",
+      "pos": [
+        48,
+        460
+      ],
+      "size": [
+        250,
+        58
+      ]
+    },
+    {
+      "id": "forecast",
+      "type": "backend",
+      "label": "Forecast and what-if",
+      "sublabel": "Physiology + wearables + habit prior",
+      "pos": [
+        400,
+        460
+      ],
+      "size": [
+        260,
+        58
+      ]
+    },
+    {
+      "id": "alerts",
+      "type": "backend",
+      "label": "Alert engine",
+      "sublabel": "Thresholds chosen on validation days",
+      "pos": [
+        780,
+        460
+      ],
+      "size": [
+        250,
+        58
+      ]
+    },
+    {
+      "id": "protocols",
+      "type": "backend",
+      "label": "Protocol compare",
+      "sublabel": "Seven lifestyle plans, no dosing",
+      "pos": [
+        48,
+        620
+      ],
+      "size": [
+        250,
+        58
+      ]
+    },
+    {
+      "id": "engine",
+      "type": "backend",
+      "label": "Incremental engine",
+      "sublabel": "Health panel only",
+      "pos": [
+        400,
+        620
+      ],
+      "size": [
+        260,
+        58
+      ],
+      "tag": "does not replace the chart"
+    },
+    {
+      "id": "dashboard",
+      "type": "frontend",
+      "label": "Doctor dashboard",
+      "sublabel": "Ward, twin, consent gate, what-if",
+      "pos": [
+        400,
+        820
+      ],
+      "size": [
+        260,
+        58
+      ]
+    },
+    {
+      "id": "doctor",
+      "type": "external",
+      "label": "Doctor",
+      "sublabel": "Reviews, may pick a plan",
+      "pos": [
+        780,
+        820
+      ],
+      "size": [
+        220,
+        58
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Patient-side inputs",
+      "wraps": [
+        "wearables",
+        "record"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Twin core (TypeScript)",
+      "wraps": [
+        "checks",
+        "cluster",
+        "state",
+        "forecast",
+        "drift",
+        "alerts",
+        "protocols",
+        "engine"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Offline validation, not live",
+      "wraps": [
+        "cgmacros",
+        "python",
+        "report"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Clinician",
+      "wraps": [
+        "dashboard",
+        "doctor"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "wear-checks",
+      "from": "wearables",
+      "to": "checks",
+      "label": "readings",
+      "variant": "emphasis"
+    },
+    {
+      "id": "record-cluster",
+      "from": "record",
+      "to": "cluster",
+      "label": "labs",
+      "variant": "emphasis"
+    },
+    {
+      "id": "cluster-state",
+      "from": "cluster",
+      "to": "state",
+      "label": "cold start",
+      "variant": "dashed"
+    },
+    {
+      "id": "checks-forecast",
+      "from": "checks",
+      "to": "forecast",
+      "variant": "emphasis"
+    },
+    {
+      "id": "state-forecast",
+      "from": "state",
+      "to": "forecast",
+      "label": "fitted knobs",
+      "variant": "emphasis"
+    },
+    {
+      "id": "forecast-drift",
+      "from": "forecast",
+      "to": "drift",
+      "variant": "dashed"
+    },
+    {
+      "id": "forecast-alerts",
+      "from": "forecast",
+      "to": "alerts",
+      "label": "curve",
+      "variant": "emphasis"
+    },
+    {
+      "id": "forecast-protocols",
+      "from": "forecast",
+      "to": "protocols",
+      "variant": "emphasis"
+    },
+    {
+      "id": "forecast-engine",
+      "from": "forecast",
+      "to": "engine",
+      "variant": "dashed"
+    },
+    {
+      "id": "alerts-dash",
+      "from": "alerts",
+      "to": "dashboard",
+      "label": "Urgent",
+      "variant": "emphasis"
+    },
+    {
+      "id": "dash-doctor",
+      "from": "dashboard",
+      "to": "doctor",
+      "variant": "emphasis"
+    },
+    {
+      "id": "cgm-python",
+      "from": "cgmacros",
+      "to": "python",
+      "variant": "dashed"
+    },
+    {
+      "id": "python-report",
+      "from": "python",
+      "to": "report",
+      "variant": "emphasis"
+    },
+    {
+      "id": "report-state",
+      "from": "report",
+      "to": "state",
+      "label": "not live",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Two data streams",
+      "items": [
+        "Record: demographics, diagnoses, labs, and a simulated TCF7L2 allele count written as FHIR",
+        "Wearables: CGM, heart rate, sleep stages and steps in an Apple Health-style file",
+        "Per-stream consent gate in the dashboard: withdrawing the record drops the record prior and medicine list but keeps the personal CGM fit; withdrawing wearables drops sleep, HRV and walks; both widen the band, and alerts, plans and ranking follow"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Twin loop that is actually on screen",
+      "items": [
+        "The live twin shrinks the personal fit toward a record + cluster prior; each is kept only when it clearly beats the group prior on validation days",
+        "The chart calls forecastCurve with sleep, HRV and walk adjustments. The Kalman engine does not replace those knobs",
+        "Spike risk adds the habitual next meal, so warnings can come up to 2 hours ahead",
+        "What-if ranks meals, walks and seven lifestyle plans, including a weekly fasting day. No dosing"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Trust and safety",
+      "items": [
+        "Only Urgent alerts interrupt; a Watch is upgraded in place when the curve worsens. Each alert has reasons",
+        "Hazards, change bounds and intended use are in docs/HAZARDS.md and docs/REGULATORY.md",
+        "One-click pre-visit clinical summary prints the twin, 7-day time in range, the chosen plan and urgent alerts"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Not in this build",
+      "items": [
+        "No ABDM-certified import or export, and Synthea was not run",
+        "No Web Worker on-device mode; the dashboard loads a committed snapshot of the fitted ward; reports/scale.json is a one-thread compute benchmark",
+        "LightGBM is an offline CGMacros comparison, not a live residual",
+        "Validated numbers are the stored CGMacros table plus the stress-test generator"
+      ]
+    }
+  ]
+}

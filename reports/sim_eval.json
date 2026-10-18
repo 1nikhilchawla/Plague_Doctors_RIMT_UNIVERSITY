@@ -1,0 +1,1275 @@
+{
+  "source": "getCohort()",
+  "generator": "mismatched",
+  "patients": 11,
+  "seriesLength": 6048,
+  "originMs": 1772389800000,
+  "mismatched": {
+    "generator": "mismatched",
+    "horizons": [
+      {
+        "horizonMin": 30,
+        "rmseTwin": 13.5,
+        "rmsePersistence": 20.4,
+        "rmsePopulation": 14.5,
+        "improvementPct": 34,
+        "mae": 7.9,
+        "mard": 5.7,
+        "coverage": 0.788,
+        "clarkeApb": 0.985,
+        "n": 6317,
+        "patientRmseMean": 12.2,
+        "patientRmseCi": [
+          8.9,
+          15.7
+        ]
+      },
+      {
+        "horizonMin": 60,
+        "rmseTwin": 22.9,
+        "rmsePersistence": 31.2,
+        "rmsePopulation": 24.6,
+        "improvementPct": 26.6,
+        "mae": 12.1,
+        "mard": 8.5,
+        "coverage": 0.765,
+        "clarkeApb": null,
+        "n": 6306,
+        "patientRmseMean": 20.3,
+        "patientRmseCi": [
+          13.8,
+          27.3
+        ]
+      },
+      {
+        "horizonMin": 120,
+        "rmseTwin": 28.1,
+        "rmsePersistence": 37.4,
+        "rmsePopulation": 31.1,
+        "improvementPct": 24.8,
+        "mae": 15.3,
+        "mard": 10.5,
+        "coverage": 0.766,
+        "clarkeApb": null,
+        "n": 6284,
+        "patientRmseMean": 25.1,
+        "patientRmseCi": [
+          17.8,
+          32.5
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "group": "t2d",
+        "patients": 8,
+        "rmse60": 26.3,
+        "rmse60Persistence": 35.8,
+        "improvementPct": 26.4
+      },
+      {
+        "group": "prediabetes",
+        "patients": 2,
+        "rmse60": 9.5,
+        "rmse60Persistence": 14.1,
+        "improvementPct": 32.1
+      },
+      {
+        "group": "healthy",
+        "patients": 1,
+        "rmse60": 7,
+        "rmse60Persistence": 8.9,
+        "improvementPct": 21.4
+      }
+    ],
+    "alerts": {
+      "spikeEvents": 254,
+      "lowEvents": 16,
+      "spikeAlerts": 299,
+      "lowAlerts": 6,
+      "spikeRecall": 0.61,
+      "spikePrecision": 0.669,
+      "lowRecall": 0.375,
+      "lowPrecision": 1,
+      "falsePerPatientDay": 0.75,
+      "medianLeadMin": 105,
+      "leadIqrMin": [
+        50,
+        115
+      ],
+      "evalDays": 12,
+      "spikeHits": 155,
+      "lowHits": 6,
+      "spikeTrue": 200,
+      "lowTrue": 6,
+      "urgentAlerts": 230,
+      "urgentHits": 125,
+      "urgentTrue": 192,
+      "urgentEvents": 185,
+      "urgentRecall": 0.676,
+      "urgentHitsAllEvents": 148,
+      "urgentRecallAllEvents": 0.548,
+      "urgentPrecision": 0.835,
+      "watchAlerts": 75,
+      "urgentPerPatientDay": 1.7,
+      "watchPerPatientDay": 0.6,
+      "spikeRecallWilson": [
+        0.549,
+        0.668
+      ],
+      "spikePrecisionWilson": [
+        0.614,
+        0.72
+      ],
+      "lowRecallWilson": [
+        0.185,
+        0.614
+      ],
+      "lowPrecisionWilson": [
+        0.61,
+        1
+      ],
+      "urgentRecallWilson": [
+        0.605,
+        0.739
+      ],
+      "urgentRecallAllEventsWilson": [
+        0.489,
+        0.606
+      ],
+      "urgentPrecisionWilson": [
+        0.781,
+        0.877
+      ]
+    }
+  },
+  "matched": {
+    "generator": "matched",
+    "horizons": [
+      {
+        "horizonMin": 30,
+        "rmseTwin": 6.3,
+        "rmsePersistence": 16.1,
+        "rmsePopulation": 8,
+        "improvementPct": 60.6,
+        "mae": 4.2,
+        "mard": 3.4,
+        "coverage": 0.772,
+        "clarkeApb": 0.992,
+        "n": 6325,
+        "patientRmseMean": 5.9,
+        "patientRmseCi": [
+          4.6,
+          7.3
+        ]
+      },
+      {
+        "horizonMin": 60,
+        "rmseTwin": 15.5,
+        "rmsePersistence": 26.5,
+        "rmsePopulation": 17.8,
+        "improvementPct": 41.4,
+        "mae": 7.4,
+        "mard": 5.5,
+        "coverage": 0.771,
+        "clarkeApb": null,
+        "n": 6314,
+        "patientRmseMean": 13.7,
+        "patientRmseCi": [
+          9.5,
+          18.5
+        ]
+      },
+      {
+        "horizonMin": 120,
+        "rmseTwin": 25.3,
+        "rmsePersistence": 36.4,
+        "rmsePopulation": 28.9,
+        "improvementPct": 30.5,
+        "mae": 13.1,
+        "mard": 8.9,
+        "coverage": 0.78,
+        "clarkeApb": null,
+        "n": 6292,
+        "patientRmseMean": 22.5,
+        "patientRmseCi": [
+          16,
+          29.4
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "group": "t2d",
+        "patients": 8,
+        "rmse60": 17.8,
+        "rmse60Persistence": 30.4,
+        "improvementPct": 41.3
+      },
+      {
+        "group": "prediabetes",
+        "patients": 2,
+        "rmse60": 6.5,
+        "rmse60Persistence": 11.6,
+        "improvementPct": 43.8
+      },
+      {
+        "group": "healthy",
+        "patients": 1,
+        "rmse60": 4.3,
+        "rmse60Persistence": 7.7,
+        "improvementPct": 44.5
+      }
+    ],
+    "alerts": {
+      "spikeEvents": 239,
+      "lowEvents": 13,
+      "spikeAlerts": 221,
+      "lowAlerts": 6,
+      "spikeRecall": 0.741,
+      "spikePrecision": 0.824,
+      "lowRecall": 0.462,
+      "lowPrecision": 1,
+      "falsePerPatientDay": 0.3,
+      "medianLeadMin": 105,
+      "leadIqrMin": [
+        95,
+        110
+      ],
+      "evalDays": 12,
+      "spikeHits": 177,
+      "lowHits": 6,
+      "spikeTrue": 182,
+      "lowTrue": 6,
+      "urgentAlerts": 159,
+      "urgentHits": 135,
+      "urgentTrue": 142,
+      "urgentEvents": 183,
+      "urgentRecall": 0.738,
+      "urgentHitsAllEvents": 139,
+      "urgentRecallAllEvents": 0.552,
+      "urgentPrecision": 0.893,
+      "watchAlerts": 68,
+      "urgentPerPatientDay": 1.2,
+      "watchPerPatientDay": 0.5
+    }
+  },
+  "ablation": [
+    {
+      "id": "none",
+      "label": "No EHR",
+      "rmse60": 28.5,
+      "n": 6306
+    },
+    {
+      "id": "group",
+      "label": "Group only",
+      "rmse60": 24.6,
+      "n": 6306
+    },
+    {
+      "id": "ehr",
+      "label": "Record + cluster",
+      "rmse60": 24.5,
+      "n": 6306
+    },
+    {
+      "id": "ehrPersonal",
+      "label": "Record + cluster + personal calibration",
+      "rmse60": 22.9,
+      "n": 6306
+    }
+  ],
+  "streamAblation": [
+    {
+      "id": "full",
+      "label": "All streams",
+      "rmse60": 22.91,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": 0.638,
+        "lowHits": 6,
+        "lowEvents": 16,
+        "lowRecall": 0.375,
+        "urgentHits": 125,
+        "urgentEvents": 185,
+        "urgentRecall": 0.676
+      }
+    },
+    {
+      "id": "noRecord",
+      "label": "No record (group prior + personal fit, no medicine term)",
+      "rmse60": 22.81,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": 0.639,
+        "lowHits": 3,
+        "lowEvents": 16,
+        "lowRecall": 0.188,
+        "urgentHits": 121,
+        "urgentEvents": 185,
+        "urgentRecall": 0.654
+      }
+    },
+    {
+      "id": "noRecordNoPersonal",
+      "label": "No record and no personal fit (group prior only)",
+      "rmse60": 24.57,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": 0.677,
+        "lowHits": 0,
+        "lowEvents": 16,
+        "lowRecall": 0,
+        "urgentHits": 117,
+        "urgentEvents": 185,
+        "urgentRecall": 0.632
+      }
+    },
+    {
+      "id": "noMeals",
+      "label": "No meals",
+      "rmse60": 26.4,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": null,
+        "lowHits": 5,
+        "lowEvents": 16,
+        "lowRecall": 0.313,
+        "urgentHits": 5,
+        "urgentEvents": 185,
+        "urgentRecall": 0.027
+      }
+    },
+    {
+      "id": "noActivity",
+      "label": "No activity",
+      "rmse60": 22.97,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": 0.647,
+        "lowHits": 1,
+        "lowEvents": 16,
+        "lowRecall": 0.063,
+        "urgentHits": 121,
+        "urgentEvents": 185,
+        "urgentRecall": 0.654
+      }
+    },
+    {
+      "id": "noSleep",
+      "label": "No sleep or HRV",
+      "rmse60": 22.89,
+      "n": 6306,
+      "alerts": {
+        "spikeF1": 0.661,
+        "lowHits": 6,
+        "lowEvents": 16,
+        "lowRecall": 0.375,
+        "urgentHits": 122,
+        "urgentEvents": 185,
+        "urgentRecall": 0.659
+      }
+    },
+    {
+      "id": "fullHardNight",
+      "label": "All streams, days after a short or stressed night",
+      "rmse60": 23.58,
+      "n": 2434
+    },
+    {
+      "id": "noSleepHardNight",
+      "label": "No sleep or HRV, days after a short or stressed night",
+      "rmse60": 23.57,
+      "n": 2434
+    },
+    {
+      "id": "fullHardNightMeal",
+      "label": "All streams, 2 h after a meal following a short or stressed night",
+      "rmse60": 21.59,
+      "n": 606
+    },
+    {
+      "id": "noSleepHardNightMeal",
+      "label": "No sleep or HRV, 2 h after a meal following a short or stressed night",
+      "rmse60": 21.86,
+      "n": 606
+    },
+    {
+      "id": "fullAfterWalk",
+      "label": "All streams, 6 h after a walk",
+      "rmse60": 15.83,
+      "n": 833
+    },
+    {
+      "id": "noActivityAfterWalk",
+      "label": "No activity, 6 h after a walk",
+      "rmse60": 16.44,
+      "n": 833
+    }
+  ],
+  "lowCost": [
+    {
+      "pricks": 2,
+      "rmse": 27.3
+    },
+    {
+      "pricks": 4,
+      "rmse": 26.9
+    },
+    {
+      "pricks": 6,
+      "rmse": 21.2
+    },
+    {
+      "pricks": 8,
+      "rmse": 20.3
+    },
+    {
+      "pricks": 288,
+      "rmse": 0
+    }
+  ],
+  "habitLeadMin": 73,
+  "habitRecall": 0.646,
+  "mealResidual": {
+    "chosen": "plain",
+    "validationRmse60": {
+      "plain": 21.2,
+      "scaled": 23.25
+    }
+  },
+  "leadShares": {
+    "note": "Share of events whose first matching alert falls inside the scorer window and is at least this many minutes earlier. Spike window is 120 min. Low window is 60 min. A miss counts as not warned. This is not a share beyond the window.",
+    "spikeEvents": 254,
+    "lowEvents": 16,
+    "spikeHits": 155,
+    "lowHits": 6,
+    "spikeAtLeast60": {
+      "atLeastMin": 60,
+      "count": 109,
+      "events": 254,
+      "share": 0.429
+    },
+    "spikeAtLeast120": {
+      "atLeastMin": 120,
+      "count": 33,
+      "events": 254,
+      "share": 0.13
+    },
+    "lowAtLeast60": {
+      "atLeastMin": 60,
+      "count": 0,
+      "events": 16,
+      "share": 0
+    }
+  },
+  "personal": [
+    {
+      "id": "GT-07",
+      "name": "Ananya Rao",
+      "group": "t2d",
+      "cluster": "IROD",
+      "rmse60": 24,
+      "rmse60Pop": 24.9,
+      "gain": 0.9,
+      "driftStart": null,
+      "driftRecovered": null
+    },
+    {
+      "id": "GT-12",
+      "name": "Vikram Shah",
+      "group": "t2d",
+      "cluster": "MARD",
+      "rmse60": 14.4,
+      "rmse60Pop": 15.4,
+      "gain": 1,
+      "driftStart": 3064,
+      "driftRecovered": 3152
+    },
+    {
+      "id": "GT-03",
+      "name": "Kavita Deshmukh",
+      "group": "t2d",
+      "cluster": "MARD",
+      "rmse60": 20.2,
+      "rmse60Pop": 22.8,
+      "gain": 2.6,
+      "driftStart": null,
+      "driftRecovered": null
+    },
+    {
+      "id": "GT-19",
+      "name": "Fatima Khan",
+      "group": "t2d",
+      "cluster": "CIRDD",
+      "rmse60": 34,
+      "rmse60Pop": 37,
+      "gain": 3,
+      "driftStart": null,
+      "driftRecovered": null
+    },
+    {
+      "id": "GT-21",
+      "name": "Suresh Patel",
+      "group": "t2d",
+      "cluster": "IROD",
+      "rmse60": 20.8,
+      "rmse60Pop": 22,
+      "gain": 1.2,
+      "driftStart": 2775,
+      "driftRecovered": 2855
+    },
+    {
+      "id": "GT-05",
+      "name": "Meera Iyer",
+      "group": "prediabetes",
+      "cluster": "none",
+      "rmse60": 10.2,
+      "rmse60Pop": 10.2,
+      "gain": 0,
+      "driftStart": 4823,
+      "driftRecovered": 4921
+    },
+    {
+      "id": "GT-28",
+      "name": "Arjun Nair",
+      "group": "prediabetes",
+      "cluster": "none",
+      "rmse60": 8.8,
+      "rmse60Pop": 9.1,
+      "gain": 0.3,
+      "driftStart": null,
+      "driftRecovered": null
+    },
+    {
+      "id": "GT-02",
+      "name": "Rohan Gupta",
+      "group": "healthy",
+      "cluster": "none",
+      "rmse60": 7,
+      "rmse60Pop": 7,
+      "gain": 0,
+      "driftStart": 3369,
+      "driftRecovered": 3499
+    },
+    {
+      "id": "GT-31",
+      "name": "Divya Menon",
+      "group": "t2d",
+      "cluster": "SIDD",
+      "rmse60": 24,
+      "rmse60Pop": 24.5,
+      "gain": 0.5,
+      "driftStart": 4590,
+      "driftRecovered": 4732
+    },
+    {
+      "id": "GT-33",
+      "name": "Imran Qureshi",
+      "group": "t2d",
+      "cluster": "SIDD",
+      "rmse60": 15.2,
+      "rmse60Pop": 16.8,
+      "gain": 1.6,
+      "driftStart": 5123,
+      "driftRecovered": 5213
+    },
+    {
+      "id": "GT-36",
+      "name": "Leela Joshi",
+      "group": "t2d",
+      "cluster": "CIRDD",
+      "rmse60": 44.2,
+      "rmse60Pop": 47.9,
+      "gain": 3.7,
+      "driftStart": 3091,
+      "driftRecovered": 3202
+    }
+  ],
+  "protocols": [
+    {
+      "id": "GT-07",
+      "name": "Ananya Rao",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 79,
+          "above180Min": 2115,
+          "below70Min": 0,
+          "meanGlucose": 165.4
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 81.3,
+          "above180Min": 1890,
+          "below70Min": 0,
+          "meanGlucose": 163.9
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 81,
+          "above180Min": 1920,
+          "below70Min": 0,
+          "meanGlucose": 163.1
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 79.3,
+          "above180Min": 2090,
+          "below70Min": 0,
+          "meanGlucose": 165
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 79.1,
+          "above180Min": 2105,
+          "below70Min": 0,
+          "meanGlucose": 165.2
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 79.1,
+          "above180Min": 2105,
+          "below70Min": 0,
+          "meanGlucose": 165.2
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 76.5,
+          "above180Min": 2365,
+          "below70Min": 0,
+          "meanGlucose": 165
+        }
+      ]
+    },
+    {
+      "id": "GT-12",
+      "name": "Vikram Shah",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 95.8,
+          "above180Min": 420,
+          "below70Min": 0,
+          "meanGlucose": 145.6
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 99.4,
+          "above180Min": 65,
+          "below70Min": 0,
+          "meanGlucose": 145.5
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 99.3,
+          "above180Min": 75,
+          "below70Min": 0,
+          "meanGlucose": 144.1
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 96.4,
+          "above180Min": 365,
+          "below70Min": 0,
+          "meanGlucose": 144.8
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 96.3,
+          "above180Min": 370,
+          "below70Min": 0,
+          "meanGlucose": 145.4
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 96.3,
+          "above180Min": 375,
+          "below70Min": 0,
+          "meanGlucose": 145.4
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 96.1,
+          "above180Min": 390,
+          "below70Min": 0,
+          "meanGlucose": 145.5
+        }
+      ]
+    },
+    {
+      "id": "GT-03",
+      "name": "Kavita Deshmukh",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 96.9,
+          "above180Min": 310,
+          "below70Min": 0,
+          "meanGlucose": 122.9
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 99.8,
+          "above180Min": 25,
+          "below70Min": 0,
+          "meanGlucose": 122.7
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 99.7,
+          "above180Min": 30,
+          "below70Min": 0,
+          "meanGlucose": 120.9
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 97.6,
+          "above180Min": 245,
+          "below70Min": 0,
+          "meanGlucose": 122.6
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 97.3,
+          "above180Min": 270,
+          "below70Min": 0,
+          "meanGlucose": 122.7
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 97.3,
+          "above180Min": 275,
+          "below70Min": 0,
+          "meanGlucose": 122.8
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 97,
+          "above180Min": 300,
+          "below70Min": 0,
+          "meanGlucose": 122
+        }
+      ]
+    },
+    {
+      "id": "GT-19",
+      "name": "Fatima Khan",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 62.1,
+          "above180Min": 3825,
+          "below70Min": 0,
+          "meanGlucose": 182.8
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 64.8,
+          "above180Min": 3550,
+          "below70Min": 0,
+          "meanGlucose": 181.5
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 62.7,
+          "above180Min": 3755,
+          "below70Min": 0,
+          "meanGlucose": 179.8
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 62.3,
+          "above180Min": 3805,
+          "below70Min": 0,
+          "meanGlucose": 182.4
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 62.2,
+          "above180Min": 3815,
+          "below70Min": 0,
+          "meanGlucose": 182.6
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 62,
+          "above180Min": 3835,
+          "below70Min": 0,
+          "meanGlucose": 182.8
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 58,
+          "above180Min": 4235,
+          "below70Min": 0,
+          "meanGlucose": 182.4
+        }
+      ]
+    },
+    {
+      "id": "GT-21",
+      "name": "Suresh Patel",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 77.4,
+          "above180Min": 2280,
+          "below70Min": 0,
+          "meanGlucose": 168.8
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 79.9,
+          "above180Min": 2030,
+          "below70Min": 0,
+          "meanGlucose": 167.2
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 79.3,
+          "above180Min": 2085,
+          "below70Min": 0,
+          "meanGlucose": 166.6
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 77.6,
+          "above180Min": 2260,
+          "below70Min": 0,
+          "meanGlucose": 168.4
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 77.5,
+          "above180Min": 2265,
+          "below70Min": 0,
+          "meanGlucose": 168.7
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 77.5,
+          "above180Min": 2270,
+          "below70Min": 0,
+          "meanGlucose": 168.6
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 74.5,
+          "above180Min": 2575,
+          "below70Min": 0,
+          "meanGlucose": 168.3
+        }
+      ]
+    },
+    {
+      "id": "GT-05",
+      "name": "Meera Iyer",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 113
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 111.7
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 112.5
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 112.9
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 112.9
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 112.9
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 113
+        }
+      ]
+    },
+    {
+      "id": "GT-28",
+      "name": "Arjun Nair",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 106.9
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 105.8
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 106.5
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 106.8
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 106.8
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 106.9
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 107.1
+        }
+      ]
+    },
+    {
+      "id": "GT-02",
+      "name": "Rohan Gupta",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.6
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 94.7
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.1
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.5
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.5
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.5
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 95.5
+        }
+      ]
+    },
+    {
+      "id": "GT-31",
+      "name": "Divya Menon",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 95.5,
+          "above180Min": 410,
+          "below70Min": 45,
+          "meanGlucose": 132.5
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 98.3,
+          "above180Min": 170,
+          "below70Min": 0,
+          "meanGlucose": 132.8
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 97.9,
+          "above180Min": 170,
+          "below70Min": 45,
+          "meanGlucose": 130.8
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 96.1,
+          "above180Min": 350,
+          "below70Min": 45,
+          "meanGlucose": 131.3
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 96,
+          "above180Min": 355,
+          "below70Min": 45,
+          "meanGlucose": 132.2
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 95.8,
+          "above180Min": 375,
+          "below70Min": 45,
+          "meanGlucose": 132
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 95.7,
+          "above180Min": 385,
+          "below70Min": 45,
+          "meanGlucose": 132.3
+        }
+      ]
+    },
+    {
+      "id": "GT-33",
+      "name": "Imran Qureshi",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 98.3,
+          "above180Min": 170,
+          "below70Min": 0,
+          "meanGlucose": 134.1
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 100,
+          "above180Min": 0,
+          "below70Min": 0,
+          "meanGlucose": 132.6
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 100,
+          "above180Min": 5,
+          "below70Min": 0,
+          "meanGlucose": 134.1
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 98.7,
+          "above180Min": 135,
+          "below70Min": 0,
+          "meanGlucose": 133.9
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 98.7,
+          "above180Min": 135,
+          "below70Min": 0,
+          "meanGlucose": 134
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 98.3,
+          "above180Min": 170,
+          "below70Min": 0,
+          "meanGlucose": 133.5
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 98.2,
+          "above180Min": 180,
+          "below70Min": 0,
+          "meanGlucose": 134.2
+        }
+      ]
+    },
+    {
+      "id": "GT-36",
+      "name": "Leela Joshi",
+      "plans": [
+        {
+          "id": "as-logged",
+          "label": "As logged",
+          "tirPct": 51.9,
+          "above180Min": 4845,
+          "below70Min": 0,
+          "meanGlucose": 193.1
+        },
+        {
+          "id": "fasting-day",
+          "label": "Fasting day once a week",
+          "tirPct": 55.2,
+          "above180Min": 4520,
+          "below70Min": 0,
+          "meanGlucose": 191.6
+        },
+        {
+          "id": "walk-after-meal",
+          "label": "Walk 15 min after lunch",
+          "tirPct": 52.3,
+          "above180Min": 4810,
+          "below70Min": 0,
+          "meanGlucose": 189.6
+        },
+        {
+          "id": "protein-swap",
+          "label": "Dal and paneer for 5% of lunch carbs",
+          "tirPct": 51.9,
+          "above180Min": 4845,
+          "below70Min": 0,
+          "meanGlucose": 192.6
+        },
+        {
+          "id": "earlier-meal",
+          "label": "Lunch 60 min earlier",
+          "tirPct": 51.9,
+          "above180Min": 4845,
+          "below70Min": 0,
+          "meanGlucose": 192.8
+        },
+        {
+          "id": "jowar-roti",
+          "label": "Jowar roti at lunch, same carbs",
+          "tirPct": 51.9,
+          "above180Min": 4845,
+          "below70Min": 0,
+          "meanGlucose": 193.1
+        },
+        {
+          "id": "split-meal",
+          "label": "Split lunch",
+          "tirPct": 46.5,
+          "above180Min": 5390,
+          "below70Min": 0,
+          "meanGlucose": 192.4
+        }
+      ]
+    }
+  ],
+  "note": "Mismatched physiology is the stress test. Matched physiology uses the same equations as the forecaster, so it is an upper bound, not evidence the twin will transfer. Cluster shift applies only to the simulated cold-start prior. Live chart uses the five-day fit, not the incremental engine."
+}

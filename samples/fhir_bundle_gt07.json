@@ -1,0 +1,261 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "generator": "glucotwin-ts-fhir",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "gt-07",
+        "gender": "female",
+        "birthDate": "1972",
+        "extension": [
+          {
+            "url": "simulated",
+            "valueBoolean": true
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "gt-07-enc-1",
+        "status": "finished",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "period": {
+          "start": "2026-02-01"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "gt-07-cond-2",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "text": "Type 2 diabetes mellitus"
+        },
+        "clinicalStatus": {
+          "text": "active"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-4548-4",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "HbA1c"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "valueQuantity": {
+          "value": 8.1,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-1558-6",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1558-6",
+              "display": "Fasting glucose"
+            }
+          ],
+          "text": "Fasting glucose"
+        },
+        "valueQuantity": {
+          "value": 152,
+          "unit": "mg/dL"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-20448-7",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "20448-7",
+              "display": "Fasting insulin"
+            }
+          ],
+          "text": "Fasting insulin"
+        },
+        "valueQuantity": {
+          "value": 16.4,
+          "unit": "uIU/mL"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-2571-8",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2571-8",
+              "display": "Triglycerides"
+            }
+          ],
+          "text": "Triglycerides"
+        },
+        "valueQuantity": {
+          "value": 186,
+          "unit": "mg/dL"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-2085-9",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2085-9",
+              "display": "HDL"
+            }
+          ],
+          "text": "HDL"
+        },
+        "valueQuantity": {
+          "value": 42,
+          "unit": "mg/dL"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-obs-13457-7",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "13457-7",
+              "display": "LDL"
+            }
+          ],
+          "text": "LDL"
+        },
+        "valueQuantity": {
+          "value": 128,
+          "unit": "mg/dL"
+        },
+        "note": [
+          {
+            "text": "Simulated lab, matched to the persona."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gt-07-tcf7l2",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "code": {
+          "text": "TCF7L2 risk alleles"
+        },
+        "valueInteger": 2,
+        "note": [
+          {
+            "text": "Simulated genetic marker. Not a clinical genotype."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "gt-07-med-10",
+        "status": "active",
+        "intent": "order",
+        "subject": {
+          "reference": "Patient/gt-07"
+        },
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "note": [
+          {
+            "text": "Simulated medication list. Not a dosing recommendation."
+          }
+        ]
+      }
+    }
+  ]
+}

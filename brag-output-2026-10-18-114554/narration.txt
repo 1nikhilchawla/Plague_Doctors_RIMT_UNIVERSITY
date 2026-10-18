@@ -1,0 +1,124 @@
+GlucoTwin explainer, narration script (25 min 41 s)
+00:44  01 · The problem
+02:38  02 · What GlucoTwin is
+03:42  03 · The data
+06:45  04 · Architecture
+08:53  05 · The approach
+13:08  06 · The dashboard
+18:05  07 · Results
+21:49  08 · Scale
+23:13  09 · Real-world impact
+24:28  10 · Limits and safety
+
+## GlucoTwin (00:00)
+
+It is quarter past one in the afternoon, on a simulated ward in India. Ananya Rao, fifty four, with type 2 diabetes, has just eaten lunch: rice, potato and ghee. Her glucose reads one hundred and fifty five. In range, for now. But her digital twin already sees where it is going: the forecast climbs well past one eighty within the hour, and an Urgent alert is on the screen.
+This is GlucoTwin: a digital twin for type 2 diabetes that shows the doctor the next two hours. In the next twenty five minutes: the problem and why it matters for India, the data, the architecture, the modelling approach, the working dashboard, the results, scale, and the real-world impact.
+
+## 01 · The problem (00:44)
+
+Chapter one. The problem.
+India has about one hundred and one million adults living with diabetes, and about one hundred and thirty six million more with prediabetes. Those are the national estimates of the ICMR-INDIAB study, in the Lancet Diabetes and Endocrinology, 2023.
+Among people who knew they had diabetes, only thirty six point three percent reached the glycaemic target. Only seven point seven percent reached the targets for blood sugar, blood pressure and LDL cholesterol together.
+Diet is a large part of the picture. Carbohydrates supply sixty two point three percent of total daily energy across India. In the same survey's 2025 analysis in Nature Medicine, replacing five percent of energy from carbohydrate with protein was associated with lower risk. Swapping refined cereals for whole wheat or millet, without eating less carbohydrate, was not.
+And care usually sees the result weeks later, at the next clinic visit, as an HbA1c number. The spike after Tuesday's lunch, or the low at three in the morning, has already happened, and nobody saw it coming.
+So this project asks one question. Can a doctor see the next two hours of a patient's glucose, get a warning with reasons before a spike or a low, and test a lifestyle change on that patient's own twin before advising it?
+The challenge brief asks for exactly this. Two data streams fused into one model: here, a FHIR health record and a CGM plus wearable stream. An adverse event predicted ahead of time: here, glucose spikes and lows, each warned with its reasons. A dashboard for the clinician: here, a working doctor's screen. And sandbox data only: every patient you will see is either synthetic, or from an open research dataset.
+
+## 02 · What GlucoTwin is (02:38)
+
+Chapter two. What GlucoTwin is.
+GlucoTwin is a personal, physiological digital twin for adults with type 2 diabetes or prediabetes. It joins three sources. The health record, which says who this person is. The continuous glucose monitor, which says what their glucose is doing right now. And wearable signals, like sleep, heart rate variability and walks, which say how their body is likely to respond today.
+From these, the twin does three jobs. First, it forecasts glucose thirty, sixty and one hundred and twenty minutes ahead, with an uncertainty band. Second, it raises spike and low alerts before they happen, and attaches the reasons it sees on the curve. Third, it compares seven lifestyle plans on that person's own twin, to show which change helps this patient, and which does not.
+The user is a diabetologist or primary care doctor, reviewing patients between visits. It is decision support for the doctor: it never doses a medicine, and never makes a diagnosis.
+
+## 03 · The data (03:42)
+
+Chapter three. The data.
+The twin reads two streams. Stream one is the health record, written as FHIR R4 resources: age and sex, the diagnosis, lab observations such as HbA1c, fasting glucose and fasting insulin, and the medication list. FHIR R4 is also the format India's ABDM uses to exchange health records. Stream two is the sensor stream: CGM every five minutes, heart rate, sleep and heart rate variability, steps, and the meals and walks the patient logs. Meal portions use the Indian Food Composition Tables, 2017, for verified dishes.
+In the dashboard, the Two-Stream Inspector shows exactly this, for one patient at one minute. On the left, every FHIR resource from the record, and what the twin does with it. On the right, the wearable packet at this minute, and the fitted knobs. Rows that are only displayed say so: triglycerides, HDL and LDL are listed but not used, and heart rate is shown only.
+Not every signal changes the model, and the build says which. CGM, logged meals, logged walks, sleep duration and efficiency, and heart rate variability all feed the twin. So do the diagnosis, the labs, BMI, sex and the medication list. Heart rate, step counts and sleep stages are displayed but not modelled, and on the simulated ward, age acts only through an approximate subgroup label.
+Two datasets drive the results. The first is real: CGMacros, an open PhysioNet dataset of forty five adults in Santa Barbara, California. Fourteen have type 2 diabetes, sixteen have prediabetes, and fifteen are healthy. They wore two CGMs and a smartwatch, and logged meals with their macronutrients. It is licensed Creative Commons, non-commercial, share-alike, and the raw files are not in the repository.
+The second is a simulated ward of eleven synthetic Indian patients, generated from a fixed seed, forty two. Eight have type 2 diabetes, two have prediabetes, and one is healthy. Its generator deliberately uses different equations from the twin: a different time-of-day effect, walk carry-over and drug effect. So the twin has to learn a body it was not written to match. A second, matched generator that shares the twin's equations is reported only as an upper bound.
+Every result uses a strict split in time. On the simulated ward, days one to five fit each twin, days six to nine choose thresholds and settings, and days ten to twenty one are the test. On CGMacros, days one to four fit, days five and six validate, and day seven onward is the test. Test days never choose anything.
+No real patient record appears anywhere. The simulated people are fictional, CGMacros is open and de-identified with shifted dates, and the dashboard simulates per-stream consent, in the spirit of India's Digital Personal Data Protection Act.
+
+## 04 · Architecture (06:45)
+
+Chapter four. Architecture.
+Here is the architecture, as built. Data flows from left to right. On the left are the inputs: CGM, wearable signals, the FHIR record, and logged meals and walks. First, stream checks put every reading on a five-minute grid, and flag sensor gaps, compression lows, sensor lag and unit mix-ups. A compression low is a false low from lying on the sensor at night; those minutes are kept out of the twin. Next is the consent gate. Each stream can be withdrawn on its own, and the twin's uncertainty band widens when it is. At the centre is the twin core: a physiological model with five personal knobs, fitted to each patient, which produces the two-hour forecast and its conformal band. Its outputs feed two engines. The alert engine turns forecast risk into Urgent or Watch alerts with reasons. The plan engine simulates seven lifestyle plans on the same twin, and ranks them. Everything ends on one screen: the doctor's dashboard. On the right is the offline column: a Python evaluator that scores the model on the real CGMacros files, learns a ridge prior from the labs, and tests a LightGBM residual. None of the offline pieces are added to the live forecast. They are there to measure it.
+This is the same architecture as published in the repository, and in the submission as a PDF, with notes on what is not built.
+The app is TypeScript, with React 19 and TanStack Start, and Recharts for the charts. The offline evaluator is Python, with numpy, pandas, scikit-learn and LightGBM. A parity check runs fifteen shared functions on twenty cases each, and requires the Python and TypeScript versions to agree within one part in a million.
+To keep the dashboard fast, the fitted simulated ward ships as a snapshot file, which the browser rebuilds in about a quarter of a second. The test suite refits the ward, and fails if that snapshot no longer matches. Type checking, three hundred and twenty tests, the parity check and the production build run on every push, in GitHub Actions.
+
+## 05 · The approach (08:53)
+
+Chapter five. The approach.
+Why a physiological model, and not a black box? Because a doctor needs to see why the forecast moves: a meal, a walk, the dawn rise, last night's sleep. And because a mechanistic twin can answer what-if questions, like moving lunch an hour earlier, that a pattern-matcher has never seen.
+Each logged meal adds a rise shaped like a triangle. It peaks around forty five minutes, later for a meal with more fibre, and fades by three hours. Its height is the person's carb sensitivity, times the grams of carbohydrate. A meal clock makes the same meal rise more in the evening and at dawn, and big meals rise more than in proportion. On CGMacros, the validation days switched those clock factors off, because they did not help on real data.
+A walk lowers glucose during and just after it, and raises insulin sensitivity for twelve to thirty hours afterwards. A dawn term adds the early-morning rise. And last night's sleep debt, poor sleep efficiency, and a drop in heart rate variability against the person's own baseline, raise carb sensitivity and the dawn rise for the whole day. Half of the night before still counts, because sleep debt accumulates.
+Every twin has five personal knobs: carb sensitivity, activity effect, fasting baseline, dawn amplitude, and the meal time constant. Days one to five fit them from the CGM.
+But on day one there is no CGM history, so the twin starts from the health record. On the simulated ward, a record formula maps HbA1c, fasting glucose, insulin resistance, BMI and sex to a starting twin. An approximate Indian subgroup label, SIDD, IROD, CIRDD or MARD, adds a shift, and it is clearly marked as an approximation of the published method. On CGMacros, the prior is a leave-one-out ridge regression on the labs, BMI, age and sex.
+The personal fit is then shrunk toward that prior, by an amount chosen per patient on validation days. Two safety floors follow. If the personal twin does not beat its prior by more than one standard error, the twin keeps the prior. And if the record-based twin does not beat the plain group average, it falls back to the group.
+The forecast adds the meal, walk and baseline curves to the current residual, which decays over time. Around it sits a ten-to-ninety percent band. It is split conformal: the band's edges are order statistics of real errors on validation days, so it reflects how wrong the twin has actually been.
+To warn early, the twin also anticipates the person's habitual next meal, learned from the fitting days: its usual time, and its usual size. It never reads future logs. That is why a spike warning can arrive before the patient has even started eating, like this one on Ananya's list.
+Spike risk is the chance that the forecast peak goes above one eighty, or rises fifty above now, in the next two hours. Low risk is the chance it falls under seventy within the hour. Those limits follow the international consensus on time in range, Battelino and colleagues, Diabetes Care 2019, which the ADA Standards of Care use. Alerts use hysteresis, a suppression window and a daily cap, so the doctor is not flooded. An alert is Urgent for a low, a peak above two fifty, or an hour above one eighty. Otherwise it is Watch, and a Watch is upgraded in place if the curve worsens.
+The medication list matters too. When the record lists a sulfonylurea, the twin expects meal rises to shrink, and glucose to fall during long gaps after a meal. A low guard then projects the rest of that fall. Those guard settings were chosen on a separate, independent run of the ward, so the scored days never tuned them.
+That principle runs through the whole project. Every threshold and setting is chosen on validation days or on independent data, never on the days that are scored. On CGMacros, the low-alert rule is chosen leave-one-participant-out, so no participant's own days pick their rule. And where an earlier version did look at test data, the change log says so in plain words.
+
+## 06 · The dashboard (13:08)
+
+Chapter six. The dashboard.
+This is the doctor's dashboard, running locally on the simulated ward. The cohort screen ranks all eleven patients by who needs a look now, with current glucose, a sparkline, time in range, and any active alert. Each row also carries the approximate subgroup label, and flags like the size of the dawn rise, or a hidden snack. The chips across the top jump to teaching moments, and Replay plays the ward forward, minute by minute.
+Opening Ananya's twin. The record card shows her labs: HbA1c eight point one percent, BMI twenty nine point four, and her metformin. The solid line is her last six hours of CGM. The dashed line is the two-hour forecast, and the shaded wash is the conformal band. Amber dots are meals. Her lunch is on the curve, and the forecast already rises well past one eighty. Below the chart are her fitted knobs. Her carb sensitivity is fourteen point two, against a type 2 group average of twelve.
+Now the consent gate. Withdrawing the health record removes her record prior, and her medication list. The twin keeps her personal CGM fit, shrunk toward the type 2 group instead, and the band widens, here by a factor of one point one two. Alerts, plans and the ward ranking all follow the consented twin.
+On the alerts screen, every alert carries its reasons. This Urgent spike lines up with the sixty seven grams of carbohydrate she has just eaten, and her glucose against her fasting baseline. The one below it fired at eleven twenty five, seventy five minutes before her usual lunch, from the habit prior, before anything was logged. The doctor can acknowledge an alert or mark it a false alarm, and only Urgent alerts interrupt.
+This is Divya, a simulated patient whose record adds a sulfonylurea from day sixteen. Her low alert leads with a Medicine reason: the drug is on the record, it is six hours since her last logged meal, and the guard expects up to thirty five more milligrams per decilitre of fall within the hour. It came true, with only five minutes of lead. And to be honest about it: on the scored days, the blind guard catches just one of her ten drug lows.
+The what-if screen is where a twin earns its name. Seven plans are applied to the patient's highest-risk meal: the meal as logged, a fifteen-minute walk after it, a five percent carb cut made up with dal and paneer, eating sixty minutes earlier, jowar roti at the same carbohydrate, splitting the meal, and one fasting day a week. Each is simulated on her own twin over days ten to sixteen, and ranked by net glycaemic gain. For Ananya, the fasting day and the walk come out on top, each adding about two points of time in range.
+Each plan carries a reason specific to this patient. Her carb sensitivity is one point one eight times the type 2 average, so a five percent carb cut moves her twin more than an average one. Jowar roti is listed honestly: the Nature Medicine analysis found no risk drop for that swap, so it is shown as a preference, not a benefit. In the ranking, a minute under seventy counts as three minutes above one eighty, or six on a glucose-lowering drug, and the fasting day always warns to review those medicines first.
+Many patients read Hindi more easily than English. One switch translates the plan table, each plan's patient-specific reason, and the printed summary.
+Below the plans, the doctor can add a verified Indian food portion, a walk, or change last night's sleep, and watch the simulated curve move against the logged one. It is labelled simulation, not advice, and nothing on this screen changes a dose.
+The clinical summary button prints a one-page pre-visit sheet for the chart. It holds the last seven days, the twin's parameters, the top-ranked plan with its simulated change, and last week's Urgent alerts with their outcomes.
+The split view breaks the current reading into its pieces: the circadian baseline, any active meal or walk, and an unexplained residual. Here, a snack Ananya never logged. The twin cannot see it, so it sits inside the residual, and the screen can replay the forecast as if it had been logged.
+And here, a sensor gap. There is no glucose to split, so the forecast and its alerts stay off, rather than guessing.
+The night view reviews each morning: the dawn rise from four to eight, nights with lows, and short sleep. Fatima's mornings rise by a median of twenty two points, and the morning after her short night rose by thirty five.
+Finally, one switch moves the dashboard onto real data: three held-out CGMacros participants, one from each group. The same twin, alerts and plans run on their real glucose, meals and watch activity, with dates shifted. The evaluation that follows covers all forty five.
+
+## 07 · Results (18:05)
+
+Chapter seven. Results.
+First, forecasting on the forty five real CGMacros adults. Persistence, the baseline that assumes glucose stays where it is, has errors of nineteen point six, twenty eight point nine and thirty eight point nine milligrams per decilitre at thirty, sixty and one hundred and twenty minutes. The twin's errors are eighteen point five, twenty six point two and thirty one point eight. That is eighteen point three percent lower at two hours, with a participant bootstrap interval of fourteen point nine to twenty one point four percent. It beats persistence at every horizon, by the narrowest margin at thirty minutes.
+Ninety nine point eight percent of thirty-minute forecasts fall in Clarke error grid zones A and B, the clinically acceptable zones. And the ten-to-ninety percent band covers between seventy nine and eighty one percent of real outcomes, against an eighty percent target.
+Does the health record help? On real data, yes. With no record, sixty-minute error is thirty point four. With a prior from the labs, BMI, age and sex alone, before any CGM fitting, it drops to twenty six point eight: twelve percent lower. With personal calibration on top, twenty six point four.
+On the simulated stress test, the twin warns a median of one hundred and five minutes before a spike. One hundred and nine of two hundred and fifty four spikes are warned at least an hour ahead, and thirty three a full two hours ahead. Sixty one percent of spikes are warned, and sixty seven percent of spike alerts come true, with zero point seven five false alerts per patient-day. Urgent alerts reach one hundred and twenty five of one hundred and eighty five severe events, and eighty three point five percent of them are right.
+Is that better than a simple alarm? On the same spikes with the same scoring, a sixty-minute CGM trend alarm reaches the same F1 score: zero point six three seven, against the twin's zero point six three eight. But it warns a median of twenty five minutes ahead instead of one hundred and five, and raises two point one one false alarms per patient-day, nearly three times as many.
+As a ranking, the twin's spike risk has an area under the ROC curve of zero point nine four seven on the simulated ward, and zero point six eight five on real data. For lows, zero point eight five three and zero point six six eight. On real data the risk number is not a calibrated probability, and the documentation says to read it as a ranking.
+Lows are the hardest part, because they are rare. On real data, the twin warns seven of seventeen lows, and seven of its eighteen low alerts come true. On the simulated ward it warns six of sixteen, and all six alerts are right. Both are below our targets, and both are reported as they are.
+Which streams earn their place? Removing meals raises simulated sixty-minute error from twenty two point nine to twenty six point four. Activity matters most after a walk: within six hours of one, error is fifteen point eight with it, and sixteen point four without. Sleep and heart rate variability help after a short or stressed night, and add almost nothing on an average day. And without the record and its medicine term, pooled error barely moves, but warned lows fall from six of sixteen to three.
+The clearest sign that the twin is personal: the same plan, splitting lunch, raises time in range for Vikram by three point six points, and for Kavita by two point nine. It lowers it for Leela by five point four, and for Fatima by four point one. It helps four of the eight type 2 twins, and hurts four. A one-size rule would get half of them wrong.
+
+## 08 · Scale (21:49)
+
+Chapter eight. Scale.
+The twin is cheap to run. One update, a two-hour forecast and a spike risk take sixteen point three microseconds per reading on one laptop thread: about sixty one thousand readings a second. Each patient's twin state is about one point seven kilobytes.
+A patient produces two hundred and eighty eight CGM readings a day, so a month of model compute is about zero point one four CPU-seconds per patient. At a million patients, that is about thirty nine CPU-hours a month, three thousand three hundred readings a second, and one point seven gigabytes of state. The sensors and hosting, not the model, set the cost.
+Each update takes constant time and touches only that patient's state, so workers can be stateless, and sharded by patient ID. Ranking all seven plans takes about eleven milliseconds. And because the twin already reads FHIR R4, it is ready for ABDM record exchange; that import is on the roadmap, not built yet.
+Scale in India also means cost to the patient, and not everyone can keep buying CGM sensors. On the simulated ward, eight fingersticks a day rebuild the glucose curve with about twenty milligrams per decilitre of error, and six a day with twenty one. That is interpolation error, not forecast error, but it shows a path for step-down care.
+
+## 09 · Real-world impact (23:13)
+
+Chapter nine. Real-world impact.
+In an Indian OPD, a diabetologist may have a few minutes per patient. The twin adds five things to those minutes. A rice-heavy lunch, and whether dal and paneer, or jowar roti, would help this particular person. A patient starting a sulfonylurea who wants to fast once a week. A sharp night-time low that may be a compression artefact rather than a real low. A patient stepping down from CGM to fingersticks. And a patient sheet in Hindi.
+The impact is a change in timing. Instead of reading last month's HbA1c, the doctor sees the next two hours, gets warnings with reasons, and tests a plan on this patient's own twin before advising it.
+The next step is a supervised pilot. One diabetes clinic, thirty consenting adults with type 2 diabetes on CGM for twelve weeks, with a doctor reviewing every forecast and alert. We would judge it on time in range, spikes warned an hour ahead, false alerts below one per patient-day, and review time.
+Alongside the pilot, the roadmap adds consented FHIR import through ABDM, learned medicine effects for lows, and risk calibrated on real Indian CGM data.
+
+## 10 · Limits and safety (24:28)
+
+Chapter ten. Limits and safety.
+This is a research prototype, not a medical device. CGMacros is forty five adults in the United States, so results may not transfer to Indian patients. The simulated ward's sleep, walk and drug effects are modelling assumptions. Low warnings are still weak, and real-data risk is not yet calibrated. The subgroup rule is an approximation of the published INSPIRED method. And the plan comparison is a simulation, not advice.
+Safety is built in. No dosing and no diagnosis, anywhere. Every alert carries its reasons. Consent is per stream. The printed note can only repeat numbers that come from the patient's own data. And a model card in the repository lists the intended use, the population, the equations, every metric, and the known limits.
+
+## GlucoTwin (25:20)
+
+GlucoTwin: a digital twin that shows the doctor the next two hours. Built by Nikhil Chawla, team GlucoTwin_RIMT-University, for the Happiest Health Digital Twin Challenge 2026. The code, the model card, and every number in this video are in the repository. Thank you for watching.

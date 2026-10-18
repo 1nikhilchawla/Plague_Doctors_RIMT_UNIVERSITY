@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GlucoTwin presentation</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f4f1ea; color: #1c1915; font-family: "Source Sans 3", "Segoe UI", sans-serif; }
+  section { width: 13.333in; height: 7.5in; padding: 0.5in 0.7in 0.45in; page-break-after: always; position: relative; overflow: hidden; }
+  section:last-child { page-break-after: auto; }
+  section.cover { background: #0f2f2f; color: #f4f1ea; }
+  section.cover .kicker { color: #8fd3c8; }
+  section.cover .stat { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+  section.cover .stat .value { color: #8fd3c8; }
+  section.cover .stat .label, section.cover li, section.cover .foot { color: #e7e2d6; }
+  .kicker { letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: #0f6e6e; margin: 0 0 8px; font-weight: 600; }
+  h1 { font-family: Georgia, "Iowan Old Style", serif; font-size: 40px; line-height: 1.05; margin: 0 0 16px; font-weight: 600; }
+  section.cover h1 { font-size: 64px; margin-bottom: 20px; }
+  ul { margin: 0; padding-left: 1.1em; }
+  li { font-size: 20px; line-height: 1.32; margin: 0 0 10px; }
+  section.dense li { font-size: 17px; line-height: 1.3; margin: 0 0 7px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0 0 18px; }
+  .stat { background: #fffdf8; border: 1px solid #e4ddd0; border-radius: 14px; padding: 12px 14px; }
+  .stat .value { font-family: Georgia, serif; font-size: 34px; line-height: 1; margin: 0 0 6px; color: #0f6e6e; font-weight: 600; }
+  .stat .label { font-size: 13.5px; line-height: 1.3; margin: 0; color: #4a443b; }
+  .foot { position: absolute; left: 0.7in; right: 0.7in; bottom: 0.25in; font-size: 12px; color: #5c564c; display: flex; justify-content: space-between; }
+  figure { margin: 0; }
+  .single img { width: 100%; max-height: 5.1in; object-fit: contain; object-position: center top; background: white; border: 1px solid #e4ddd0; border-radius: 10px; }
+  .single + ul li { font-size: 15px; margin-top: 8px; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 14px; }
+  .shots img { width: 100%; height: 3.55in; object-fit: cover; object-position: center top; border: 1px solid #d9d1c1; border-radius: 10px; background: white; }
+  .shots figcaption { font-size: 13.5px; line-height: 1.3; margin-top: 6px; color: #4a443b; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <p class="kicker">A digital twin for type 2 diabetes · Happiest Health Digital Twin Challenge 2026</p>
+  <h1>GlucoTwin</h1>
+  <div class="stats"><div class="stat"><p class="value">18.3%</p><p class="label">lower 2-hour error than persistence on 45 real adults (31.8 vs 38.9 mg/dL)</p></div><div class="stat"><p class="value">105 min</p><p class="label">median warning before a glucose spike, using the habitual next meal</p></div><div class="stat"><p class="value">109 of 254</p><p class="label">spikes warned 60+ min ahead; 33 a full 120 min ahead</p></div><div class="stat"><p class="value">7</p><p class="label">lifestyle plans ranked on the patient's own twin, never a dose</p></div></div>
+  
+  
+  <ul>
+    <li>Fuses the FHIR health record with CGM, sleep, HRV and activity to forecast glucose 2 hours ahead, warn before spikes with reasons, and test lifestyle plans on the patient's own twin.</li>
+    <li>Team GlucoTwin_RIMT-University · Nikhil Chawla, Full-Stack AI &amp; Digital Health Lead · BCA – AI &amp; Data Science, RIMT University.</li>
+    <li>Research prototype — not a medical device, not medical advice. All patient data is synthetic or open (CGMacros, CC BY-NC-SA 4.0).</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>1 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Cited surveys, then measured results</p>
+  <h1>The gap, and what the twin changes</h1>
+  
+  
+  
+  <ul>
+    <li>101 million adults with diabetes and 136 million with prediabetes in India. ICMR-INDIAB-17, Lancet Diabetes &amp; Endocrinology, 2023. doi:10.1016/S2213-8587(23)00119-5.</li>
+    <li>Only 36.3% reach the glycaemic target; 7.7% reach HbA1c, blood pressure and LDL together. ICMR-INDIAB-13, Lancet Diabetes &amp; Endocrinology, 2022.</li>
+    <li>Carbohydrates are 62.3% of energy in Indian diets. Nature Medicine, 2025. doi:10.1038/s41591-025-03949-4.</li>
+    <li>A clinic visit sees the 3-month average, not the spike that already happened.</li>
+    <li>GlucoTwin: 18.3% lower 2-hour error on real data (31.8 vs 38.9 mg/dL); spikes warned a median 105 min ahead, 109 of 254 at least an hour ahead; seven lifestyle plans compared per patient.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>2 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">And what it refuses</p>
+  <h1>What the twin does</h1>
+  
+  
+  
+  <ul>
+    <li>Forecasts glucose 30, 60 and 120 minutes ahead with a 10–90% conformal band, from logged meals, walks, last night's sleep and HRV, and the record-based fit.</li>
+    <li>Anticipates the next meal: spike risk adds the person's habitual meal (median time and size from the fitting days), so warnings come a median 105 min early and 33 spikes were warned a full 120 min ahead.</li>
+    <li>Raises Urgent or Watch alerts and lists the meals, walks and sleep behind each one; only Urgent interrupts.</li>
+    <li>Ranks seven lifestyle plans on the patient's highest-risk meal: walk after the meal, a dal-and-paneer carb cut, an earlier meal, a split meal, jowar roti, and a weekly fasting day. Labelled Simulation, not advice.</li>
+    <li>Per-stream consent (DPDP-style) and a one-click pre-visit clinical summary for the chart.</li>
+    <li>Never doses a medicine and never diagnoses.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>3 / 15</span></div>
+</section>
+<section class="dense">
+  <p class="kicker">Fusion measured by removing one stream at a time (60-min RMSE, mg/dL)</p>
+  <h1>Two streams, one fit</h1>
+  <div class="stats"><div class="stat"><p class="value">3.49</p><p class="label">mg/dL lost without meals (22.91 → 26.40)</p></div><div class="stat"><p class="value">1.66</p><p class="label">mg/dL lost without the record and the personal CGM fit (→ 24.57)</p></div><div class="stat"><p class="value">3.7%</p><p class="label">lower error within 6 h of a walk with activity (15.83 vs 16.44)</p></div><div class="stat"><p class="value">1.2%</p><p class="label">lower error after meals following a short or stressed night with sleep + HRV (21.59 vs 21.86)</p></div></div>
+  
+  
+  <ul>
+    <li>Health record (FHIR R4, glucotwin-ts-fhir): labs, BMI, age, sex and medicines set the prior the live twin shrinks toward, blended with the group prior by inverse error variance.</li>
+    <li>Record prior and medicine term on their own: 22.91 with them, 22.81 without, no gain on this ward. The personal CGM fit carries the benefit.</li>
+    <li>Wearables: last night's sleep, sleep efficiency and HRV (plus half of the night before) scale insulin sensitivity and the dawn rise; walks raise sensitivity for 12–30 h.</li>
+    <li>Whole ward, all 6,306 forecasts: full 22.91, no activity 22.97, no sleep or HRV 22.89. Sleep matters where it acts, not on an average day.</li>
+    <li>On real CGMacros data the record alone cuts 1-hour error by 11.8% (30.4 → 26.8).</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>4 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Same picture as docs/architecture</p>
+  <h1>Architecture, as built</h1>
+  
+  <figure class="single"><img src="../architecture/GlucoTwin_Architecture.png" alt="Architecture diagram" /></figure>
+  
+  <ul>
+    <li>Live path: stream checks → fitted twin → forecast and what-if → alert engine → doctor dashboard with consent gate. Offline: CGMacros, ridge prior, LightGBM, trend fit.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>5 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">What is live, what is offline</p>
+  <h1>Models</h1>
+  
+  
+  
+  <ul>
+    <li>Live: meal absorption with fiber and fat and a meal clock, walks, dawn rise, sleep and HRV sensitivity, residual decay, and a finite-sample conformal 10th–90th band. Validation days switched the meal clock off for CGMacros (60-min 30.8 with, 28.0 without).</li>
+    <li>Personal knobs come from days 1–5. How far each patient moves from the record prior is chosen on validation days 6–9; the personal fit is kept only when it beats the prior by more than one standard error.</li>
+    <li>Every patient's personal gain over the group prior is now ≥ 0 (range 0.0 to 3.7 mg/dL).</li>
+    <li>Alert thresholds are chosen on validation days, never on scored days. A Watch alert is upgraded to Urgent in place when the curve gets worse. On CGMacros a guarded CGM trend rule for lows (at or under 85 mg/dL, or 92 with no recent meal; fall ≥ 1 mg/dL/min; damped 15-min projection averaged with the twin's 30-min trough under 70) is chosen leave-one-participant-out; its candidate grid was first proposed after a look at test-day false alarms. The simulated sulfonylurea low guard is chosen on an independent realization of the ward, never on the scored days.</li>
+    <li>Subgroup labels (SIDD / IROD / CIRDD / MARD) are an approximate rule, not the published INSPIRED clustering. LightGBM stays offline.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>6 / 15</span></div>
+</section>
+<section class="dense">
+  <p class="kicker">Printed from the eval JSON</p>
+  <h1>Outcomes on real and simulated data</h1>
+  <div class="stats"><div class="stat"><p class="value">18.3%</p><p class="label">2-hour error vs persistence on CGMacros (31.8 vs 38.9)</p></div><div class="stat"><p class="value">9.3%</p><p class="label">1-hour error vs persistence (26.2 vs 28.9)</p></div><div class="stat"><p class="value">99.8%</p><p class="label">of 30-min forecasts in Clarke zones A + B</p></div><div class="stat"><p class="value">7 of 17</p><p class="label">real lows warned on CGMacros, 38.9% precise</p></div></div>
+  
+  
+  <ul>
+    <li>CGMacros, 45 adults: 30 min 18.5 vs 19.6 (a narrow win), 60 min 26.2 vs 28.9, 120 min 31.8 vs 38.9 mg/dL. The 10–90% band covers 0.81 / 0.79 / 0.79.</li>
+    <li>CGMacros alerts: spikes 38.9% caught at 63.8% precision; lows 7 of 17 at 38.9% precision, 0.43 false alerts per patient-day.</li>
+    <li>Simulated stress test (generator differs from the twin): 60 min 22.9 vs persistence 31.2; 120 min 28.1 vs 37.4.</li>
+    <li>Stress-test spikes: 61.0% caught, 66.9% precise, 0.75 false alerts per patient-day, median lead 105 min. Urgent alerts reach 67.6% of 185 severe events, 83.5% precise. Lows 6 of 16.</li>
+    <li>Matched generator (shares the twin's equations, an upper bound): 60 min 15.5 vs 26.5.</li>
+    <li>Risk ranking (AUROC, 95% CI): spikes 0.685 (0.638–0.730) on CGMacros, 0.947 simulated; lows 0.668 and 0.853. On real data the risk is a ranking, not a calibrated probability.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>7 / 15</span></div>
+</section>
+<section class="dense">
+  <p class="kicker">Same 254 spikes, same alert rules, same scorer</p>
+  <h1>As accurate as the best simple alarm, earlier and quieter</h1>
+  <div class="stats"><div class="stat"><p class="value">0.638</p><p class="label">F1 for GlucoTwin; next best 0.637 (Trend projection, 60 min)</p></div><div class="stat"><p class="value">105 min</p><p class="label">median warning; CGM trend alarms 45 min at best</p></div><div class="stat"><p class="value">109</p><p class="label">spikes warned ≥ 60 min ahead (42.9%)</p></div><div class="stat"><p class="value">0.75</p><p class="label">false alerts per patient-day</p></div></div>
+  
+  
+  <ul>
+    <li>GlucoTwin: 61.0% recall, 66.9% precision. F1 is level with Trend projection, 60 min; GlucoTwin warns a median 105 min ahead against 25, with 0.75 against 2.11 false alerts per patient-day.</li>
+    <li>Rise-rate alarm: 24.8% recall, 78.8% precision, F1 0.377, 0.13 false/day, median lead 5 min.</li>
+    <li>Trend projection, 60 min: 89.4% recall, 49.5% precision, F1 0.637, 2.11 false/day, median lead 25 min.</li>
+    <li>Trend projection, 120 min: 81.5% recall, 34.5% precision, F1 0.485, 3.86 false/day, median lead 45 min.</li>
+    <li>Big-meal rule, ≥ 40 g carbs: 56.7% recall, 58.5% precision, F1 0.576, 0.77 false/day, median lead 30 min.</li>
+    <li>Big-meal rule, ≥ 60 g carbs: 29.5% recall, 73.5% precision, F1 0.421, 0.20 false/day, median lead 25 min.</li>
+    <li>Source: docs/ALERT_PROOF.md (npm run alert-proof).</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>8 / 15</span></div>
+</section>
+<section class="dense">
+  <p class="kicker">Time in range on days 10–16 of each fitted twin. No dosing.</p>
+  <h1>Seven plans, one twin per patient</h1>
+  
+  
+  
+  <ul>
+    <li>Vikram Shah: Split lunch — 95.8% → 99.4% (+3.6 pts), minutes above 180 420 → 65.</li>
+    <li>Leela Joshi: Fasting day once a week — 51.9% → 55.2% (+3.3 pts), minutes above 180 4845 → 4520.</li>
+    <li>Kavita Deshmukh: Split lunch — 96.9% → 99.8% (+2.9 pts), minutes above 180 310 → 25.</li>
+    <li>Divya Menon: Split lunch — 95.5% → 98.3% (+2.8 pts), minutes above 180 410 → 170.</li>
+    <li>Fatima Khan: Fasting day once a week — 62.1% → 64.8% (+2.7 pts), minutes above 180 3825 → 3550.</li>
+    <li>Suresh Patel: Fasting day once a week — 77.4% → 79.9% (+2.5 pts), minutes above 180 2280 → 2030.</li>
+    <li>Ananya Rao: Fasting day once a week — 79% → 81.3% (+2.3 pts), minutes above 180 2115 → 1890.</li>
+    <li>Imran Qureshi: Walk 15 min after lunch — 98.3% → 100% (+1.7 pts), minutes above 180 170 → 0.</li>
+    <li>The same plan, split lunch: Vikram +3.6, Kavita +2.9, Divya +2.8, Imran +1.7, Ananya -2.5, Suresh -2.9, Fatima -4.1, Leela -5.4 points. One rule does not fit every twin.</li>
+    <li>Plans target each patient's highest-risk meal (breakfast, lunch or dinner). Full table in the README.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>9 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Live screens from the running app</p>
+  <h1>The doctor dashboard</h1>
+  
+  
+  <div class="shots"><figure><img src="screens/cohort.png" alt="Cohort triage: patients ranked by urgency; only Urgent interrupts" /><figcaption>Cohort triage: patients ranked by urgency; only Urgent interrupts</figcaption></figure><figure><img src="screens/twin.png" alt="Twin: 2-hour forecast with conformal band and per-stream consent toggles" /><figcaption>Twin: 2-hour forecast with conformal band and per-stream consent toggles</figcaption></figure><figure><img src="screens/whatif.png" alt="What-if: seven plans on the patient's own twin, with deltas" /><figcaption>What-if: seven plans on the patient's own twin, with deltas</figcaption></figure></div>
+  <ul>
+    <li>The Clinical summary button prints a one-page pre-visit sheet: twin parameters, 7-day time in range, the chosen plan and recent Urgent alerts.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>10 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Direction, not a reproduction</p>
+  <h1>Built for India</h1>
+  
+  
+  
+  <ul>
+    <li>IFCT 2017 food rows for Indian plates: rice, chapati, toor dal, paneer, jowar roti.</li>
+    <li>The diet paper is cited as direction. The twin sees carbohydrate grams, fiber, fat and walks; it has no separate protein effect.</li>
+    <li>Subgroup priors follow the South Asian SIDD / IROD / CIRDD / MARD labels with approximate thresholds.</li>
+    <li>A weekly fasting-day preset is built, with a medicine-review warning. Navratri, Ramadan and Ekadashi calendars are not.</li>
+    <li>CGMacros is a US cohort; transfer to Indian patients is not yet shown.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>11 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">DPDP-style per-stream consent is live in the dashboard</p>
+  <h1>Trust, safety and consent</h1>
+  
+  
+  
+  <ul>
+    <li>Withdraw the health record and the twin drops the record prior and medicine list, keeps its personal CGM fit, and widens its band at least ×1.12; withdraw wearables and sleep, HRV and walks drop out and the band widens ×1.1. Alerts, plans and the ward ranking follow the consented twin.</li>
+    <li>Only Urgent alerts interrupt. Every alert lists its reasons; the doctor can mark a false alarm.</li>
+    <li>Drift is flagged as out of sync and never silently rewrites the fit on screen.</li>
+    <li>Intended use and change bounds: docs/REGULATORY.md. Hazards and the test that locks each one: docs/HAZARDS.md.</li>
+    <li>No insulin, no tablet dose, no diagnosis. The fasting-day plan tells the doctor to review glucose-lowering medicines first.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>12 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">reports/scale.json · 2026-10-17 · 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
+  <h1>Scale and integration</h1>
+  <div class="stats"><div class="stat"><p class="value">16.3 µs</p><p class="label">per reading: update, 2-hour forecast and spike risk</p></div><div class="stat"><p class="value">61,437</p><p class="label">readings per second on one laptop thread</p></div><div class="stat"><p class="value">14 µs</p><p class="label">median dashboard forecast</p></div><div class="stat"><p class="value">229 ms</p><p class="label">to load the fitted ward in the dashboard (a cold fit and evaluation take 12.0 s)</p></div></div>
+  
+  
+  <ul>
+    <li>Compute only: excludes network and database time. One thread; the work is independent per patient, so it shards by patient. Benchmark: 3,000 simulated patients × 288 readings.</li>
+    <li>The record is a FHIR R4 Bundle, the format ABDM exchanges. ABDM-certified import and an on-device Web Worker are not built yet.</li>
+    <li>Per-stream consent is already enforced in the dashboard, ready to map onto an ABDM consent artefact.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>13 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Read these before the headline</p>
+  <h1>Limitations</h1>
+  
+  
+  
+  <ul>
+    <li>The simulated ward is synthetic (seed 42); its sleep, HRV, walk and medication effects are modelling assumptions at the upper end of published studies.</li>
+    <li>Sleep and HRV help after meals following a hard night (21.59 vs 21.86) but not on an average day (22.91 vs 22.89).</li>
+    <li>CGMacros is 45 US adults. At 30 min the twin is 18.5 against persistence 19.6 (a narrow win), and low alerts are 38.9% precise, short of the 45% target.</li>
+    <li>Simulated lows: 6 of 16 warned at 100.0% precision, short of a 65% target; the sulfonylurea guard is chosen on an independent realization, so this is blind. The record prior and medicine term do not lower pooled simulated error, but without them warned lows fall to 3 of 16.</li>
+    <li>Approximate subgroups, offline LightGBM, plan compare is a simulation. Not clinically validated.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>14 / 15</span></div>
+</section>
+<section class="">
+  <p class="kicker">Next: a supervised clinic pilot</p>
+  <h1>Roadmap and team</h1>
+  
+  
+  
+  <ul>
+    <li>Now: the twin runs on 11 simulated patients and 45 real CGMacros adults, with consent, alerts, plans and the pre-visit summary.</li>
+    <li>Next: ABHA-consented FHIR import through ABDM, learned medicine effects for lows, and calibrated risk on real Indian CGM data.</li>
+    <li>Pilot: one diabetes clinic, 30 consenting adults on CGM for 12 weeks, with a doctor reviewing forecasts and alerts.</li>
+    <li>Team GlucoTwin_RIMT-University. Nikhil Chawla, team leader — Full-Stack AI &amp; Digital Health Lead, BCA – AI &amp; Data Science, RIMT University, Mandi Gobindgarh, Punjab. Faculty mentor: Dr. Ashish Oberoi (Dean / Faculty Mentor, Department of Computer Applications, RIMT University).</li>
+    <li>GitHub: github.com/1nikhilchawla.</li>
+  </ul>
+  <div class="foot"><span>Research prototype — not a medical device, not medical advice.</span><span>15 / 15</span></div>
+</section>
+</body>
+</html>
