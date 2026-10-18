@@ -61,7 +61,7 @@ Research prototype — not a medical device, not medical advice. All patient dat
 
 | Name | Role | Programme | GitHub |
 | --- | --- | --- | --- |
-| Nikhil Chawla (team leader) | Full-Stack AI & Digital Health Lead | BCA – AI & Data Science, RIMT University | [@1nikhilchawla](https://github.com/1nikhilchawla) |
+| Nikhil Chawla (team leader) | AI Engineer | BCA – AI & Data Science, RIMT University | [@1nikhilchawla](https://github.com/1nikhilchawla) |
 
 The team leader is a full-time student.
 
@@ -69,7 +69,7 @@ The team leader is a full-time student.
 
 - College: **RIMT University**, Mandi Gobindgarh, Punjab, India.
 - Incubator: not affiliated with an incubator.
-- Faculty mentor: Dr. Ashish Oberoi (Dean / Faculty Mentor, Department of Computer Applications, RIMT University).
+- Faculty mentor: Dr. Rajkumar (Head of Department, Computer Applications, RIMT University).
 
 ## 3. Project title
 

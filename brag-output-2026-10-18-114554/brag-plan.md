@@ -45,4 +45,4 @@ Made with the /brag method (latent-spaces/brag, `brag-slim` workflow): story fir
 
 **Data shown.** All patients on screen are simulated (seed 42) or de-identified CGMacros participants with shifted dates. No real names, identifiers or secrets appear. Screens were captured from the local dev server on 18 Oct 2026 (`work/capture.mjs`).
 
-**To confirm:** the faculty-mentor line on the closing card (Dr. Ashish Oberoi, Department of Computer Applications, RIMT University) comes from the README; check it before uploading.
+**To confirm:** the faculty-mentor line on the closing card (this render predates the change to Dr. Rajkumar, Head of Department, Computer Applications, RIMT University) comes from the README; check it before uploading.

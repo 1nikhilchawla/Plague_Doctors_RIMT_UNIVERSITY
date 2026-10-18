@@ -23,7 +23,7 @@
       ],
       "bullets": [
         "Fuses the FHIR health record with CGM, sleep, HRV and activity to forecast glucose 2 hours ahead, warn before spikes with reasons, and test lifestyle plans on the patient's own twin.",
-        "Team GlucoTwin_RIMT-University · Nikhil Chawla, Full-Stack AI & Digital Health Lead · BCA – AI & Data Science, RIMT University.",
+        "Team GlucoTwin_RIMT-University · Nikhil Chawla, AI Engineer · BCA – AI & Data Science, RIMT University.",
         "Research prototype — not a medical device, not medical advice. All patient data is synthetic or open (CGMacros, CC BY-NC-SA 4.0)."
       ]
     },
@@ -263,7 +263,7 @@
         "Now: the twin runs on 11 simulated patients and 45 real CGMacros adults, with consent, alerts, plans and the pre-visit summary.",
         "Next: ABHA-consented FHIR import through ABDM, learned medicine effects for lows, and calibrated risk on real Indian CGM data.",
         "Pilot: one diabetes clinic, 30 consenting adults on CGM for 12 weeks, with a doctor reviewing forecasts and alerts.",
-        "Team GlucoTwin_RIMT-University. Nikhil Chawla, team leader — Full-Stack AI & Digital Health Lead, BCA – AI & Data Science, RIMT University, Mandi Gobindgarh, Punjab. Faculty mentor: Dr. Ashish Oberoi (Dean / Faculty Mentor, Department of Computer Applications, RIMT University).",
+        "Team GlucoTwin_RIMT-University. Nikhil Chawla, team leader — AI Engineer, BCA – AI & Data Science, RIMT University, Mandi Gobindgarh, Punjab. Faculty mentor: Dr. Rajkumar (Head of Department, Computer Applications, RIMT University).",
         "GitHub: github.com/1nikhilchawla."
       ]
     }
