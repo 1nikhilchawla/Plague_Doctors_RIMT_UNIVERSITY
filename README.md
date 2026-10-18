@@ -57,7 +57,7 @@ Research prototype — not a medical device, not medical advice. All patient dat
 
 ## 1. Team details
 
-**Team name:** GlucoTwin_RIMT-University
+**Team name:** Plague_Doctors
 
 | Name | Role | Programme | GitHub |
 | --- | --- | --- | --- |
